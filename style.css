@@ -1,53 +1,49 @@
 /* =====================================================
-   LN BARBER WEB
-   STYLE.CSS COMPLETO
+   MARTINS BARBEARIA WEB — STYLE.CSS
+   Tema claro (bege + off-white), vermelho como cor
+   principal e azul-marinho só em detalhes.
+   Sem !important: a ordem do arquivo decide quem vence.
    ===================================================== */
 
-/* =====================================================
-   VARIÁVEIS
-   ===================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
 
 /* =====================================================
-   VARIÁVEIS — DARK BARBER PREMIUM
+   1. VARIÁVEIS
    ===================================================== */
 
 :root {
 
-    /* IDENTIDADE DARK PREMIUM */
-    --azul: rgb(29, 127, 184);
-    --azulEscuro: rgb(23, 29, 36);
-    --azulMaisEscuro: rgb(13, 17, 22);
-    --azulClaro: rgb(91, 169, 214);
+    /* fundos */
+    --fundo-1: #f3f1ee;
+    --fundo-2: #e4e1dc;
+    --card: #f9f8f6;
+    --campo: #f1eeea;
+    --menu: #efede9;
 
-    --creme: rgb(11, 14, 18);
-    --branco: rgb(25, 30, 36);
-    --preto: rgb(245, 247, 250);
+    /* textos */
+    --texto: #1c1c1c;
+    --texto-suave: #666666;
 
-    --cinza: rgb(151, 160, 170);
-    --cinzaClaro: rgb(48, 55, 63);
-    --cinzaMuitoClaro: rgb(31, 37, 44);
+    /* marca */
+    --vermelho: #b03a48;
+    --vermelho-escuro: #962f3b;
+    --azul: #4a5496;
 
-    --dourado: rgb(202, 165, 84);
-    --verde: rgb(45, 171, 112);
-    --vermelho: rgb(202, 67, 67);
+    /* apoio */
+    --linha: #e6e1db;
+    --verde: #2e8b57;
+    --amarelo: #c9a24a;
 
-    --sombra:
-        0 8px 25px rgba(0, 0, 0, 0.28);
-
-    --sombraForte:
-        0 15px 40px rgba(0, 0, 0, 0.42);
-
-    --raio:
-        18px;
-
-    --raioPequeno:
-        12px;
+    --raio-card: 22px;
+    --raio-campo: 12px;
+    --sombra: 0 2px 6px rgba(0, 0, 0, 0.15);
+    --sombra-leve: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 
-
 /* =====================================================
-   RESET
+   2. BASE
    ===================================================== */
 
 * {
@@ -58,1877 +54,16 @@
 
 html {
     scroll-behavior: smooth;
+    background: var(--fundo-2);
 }
 
 body {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:
-    #0B0F14;
-
-color:
-    #F5F7FA;
-
-    min-height:
-        100vh;
-
-    padding-bottom:
-        90px;
-}
-
-button,
-input,
-select {
-    font-family: inherit;
-}
-
-
-/* =====================================================
-   LOGIN
-   ===================================================== */
-
-.tela-login {
-
-    min-height:
-        100vh;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    padding:
-        25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--azulMaisEscuro),
-            var(--azulEscuro)
-        );
-}
-
-.login-caixa {
-
-    width:
-        100%;
-
-    max-width:
-        430px;
-
-    background:
-        var(--branco);
-
-    border-radius:
-        24px;
-
-    padding:
-        35px 30px;
-
-    box-shadow:
-        var(--sombraForte);
-}
-
-.login-caixa h1 {
-
-    text-align:
-        center;
-
-    color:
-        var(--azulEscuro);
-
-    font-size:
-        30px;
-
-    letter-spacing:
-        2px;
-
-    margin-bottom:
-        5px;
-}
-
-.login-subtitulo {
-
-    text-align:
-        center;
-
-    color:
-        var(--cinza);
-
-    margin-bottom:
-        30px;
-}
-
-.login-caixa label {
-
-    display:
-        block;
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-
-    color:
-        var(--azulEscuro);
-
-    margin:
-        16px 0 7px;
-}
-
-.login-caixa input,
-.login-caixa select {
-
-    width:
-        100%;
-
-    padding:
-        14px;
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    border-radius:
-        12px;
-
-    background:
-    #121820;
-
-    outline:
-        none;
-
-    font-size:
-        15px;
-
-    transition:
-        0.2s;
-}
-
-.login-caixa input:focus,
-.login-caixa select:focus {
-
-    border-color:
-        #1D7FB8;
-
-    background:
-        #121820;
-
-     box-shadow:
-        0 0 0 2px rgba(0, 119, 190, 0.18);
-}
-
-.login-erro {
-
-    min-height:
-        20px;
-
-    margin-top:
-        12px;
-
-    text-align:
-        center;
-
-    color:
-        var(--vermelho);
-
-    font-size:
-        14px;
-
-    font-weight:
-        700;
-}
-
-
-/* =====================================================
-   CABEÇALHO
-   ===================================================== */
-
-.topo {
-
-    width:
-        100%;
-
-    min-height:
-        82px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    padding:
-        15px 22px;
-
-    color:
-        gray;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--azulMaisEscuro),
-            var(--azulEscuro)
-        );
-
-    box-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.12);
-}
-
-.topo h1 {
-
-    font-size:
-        23px;
-
-    letter-spacing:
-        2px;
-
-    font-weight:
-        800;
-}
-
-.topo p {
-
-    margin-top:
-        3px;
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        3px;
-
-    opacity:
-        0.65;
-}
-
-.icone {
-
-    width:
-        45px;
-
-    height:
-        45px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        14px;
-
-    background:
-        rgba(255,255,255,0.10);
-
-    font-size:
-        25px;
-}
-
-
-/* =====================================================
-   BANNER
-   ===================================================== */
-
-.banner {
-
-    margin:
-        20px;
-
-    padding:
-        28px;
-
-    border-radius:
-        22px;
-
-    color:
-        gray;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--azul),
-            var(--azulEscuro)
-        );
-
-    box-shadow:
-        var(--sombra);
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-}
-
-.banner::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        160px;
-
-    height:
-        160px;
-
-    border-radius:
-        50%;
-
-    right:
-        -60px;
-
-    top:
-        -70px;
-
-    background:
-        rgba(255,255,255,0.08);
-}
-
-.banner h2 {
-
-    position:
-        relative;
-
-    z-index:
-        1;
-
-    font-size:
-        27px;
-
-    margin-bottom:
-        7px;
-}
-
-.banner p {
-
-    position:
-        relative;
-
-    z-index:
-        1;
-
-    opacity:
-        0.85;
-
-    font-size:
-        14px;
-}
-
-
-/* =====================================================
-   CONTEÚDO
-   ===================================================== */
-
-.conteudo {
-
-    max-width:
-        1100px;
-
-    margin:
-        0 auto;
-
-    padding:
-        0 20px 30px;
-}
-
-.conteudo > h2 {
-
-    color:
-        var(--azulEscuro);
-
-    font-size:
-        21px;
-
-    margin:
-        10px 0 16px;
-}
-
-
-/* =====================================================
-   CARDS PRINCIPAIS
-   ===================================================== */
-
-.cards {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap:
-        14px;
-
-    margin-bottom:
-        20px;
-}
-
-.card {
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    background:
-    #121820;
-
-   color:
-    #F5F7FA;
-
-    border-radius:
-        var(--raio);
-
-    min-height:
-        145px;
-
-    padding:
-        20px;
-
-    text-align:
-        left;
-
-    cursor:
-        pointer;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        flex-start;
-
-    justify-content:
-        center;
-
-    box-shadow:
-        var(--sombra);
-
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s,
-        border-color 0.2s;
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-}
-
-.card::after {
-
-    content:
-        "→";
-
-    position:
-        absolute;
-
-    right:
-        17px;
-
-    bottom:
-        15px;
-
-    color:
-        var(--azul);
-
-    font-size:
-        20px;
-
-    opacity:
-        0.7;
-}
-
-.card:hover {
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        var(--sombraForte);
-
-    border-color:
-        rgba(29,127,184,0.18);
-}
-
-.card:active {
-
-    transform:
-        scale(0.98);
-}
-
-.card span {
-
-    font-size:
-        28px;
-
-    margin-bottom:
-        12px;
-}
-
-.card strong {
-
-    font-size:
-        16px;
-
-    color:
-        var(--azulEscuro);
-
-    margin-bottom:
-        5px;
-}
-
-.card small {
-
-    color:
-        var(--cinza);
-
-    font-size:
-        12px;
-
-    line-height:
-        1.4;
-}
-
-
-/* =====================================================
-   PAINÉIS INTERNOS
-   ===================================================== */
-
-.painel {
-
-    width:
-        100%;
-
-    background:
-    #121820;
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    border-radius:
-        22px;
-
-    padding:
-        24px;
-
-    margin-top:
-        18px;
-
-    box-shadow:
-        var(--sombra);
-}
-
-.painel h2 {
-
-    color:
-        var(--azulEscuro);
-
-    font-size:
-        23px;
-
-    margin-bottom:
-        8px;
-}
-
-.painel > p {
-
-    color:
-        var(--cinza);
-
-    font-size:
-        14px;
-
-    margin-bottom:
-        20px;
-}
-
-.painel h3 {
-
-    color:
-        var(--azulEscuro);
-
-    font-size:
-        17px;
-
-    margin:
-        24px 0 12px;
-}
-
-
-/* =====================================================
-   FORMULÁRIOS
-   ===================================================== */
-
-.painel label {
-
-    display:
-        block;
-
-    margin:
-        16px 0 7px;
-
-    color:
-        var(--azulEscuro);
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-}
-
-.painel input,
-.painel select {
-
-    width:
-        100%;
-
-    padding:
-        13px 14px;
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    border-radius:
-        12px;
-
-   background:
-    #121820;
-
-color:
-    #F5F7FA;
-
-    outline:
-        none;
-
-    font-size:
-        14px;
-
-    transition:
-        0.2s;
-}
-
-.painel input:focus,
-.painel select:focus {
-
-    border-color:
-        var(--azul);
-
-    background:
-        var(--branco);
-
-    box-shadow:
-        0 0 0 3px rgba(29,127,184,0.07);
-}
-
-.painel input:disabled,
-.painel select:disabled {
-
-    opacity:
-        0.65;
-
-    cursor:
-        not-allowed;
-}
-
-
-/* =====================================================
-   BOTÃO PRINCIPAL
-   ===================================================== */
-
-.botao-principal {
-
-    width:
-        100%;
-
-    border:
-        none;
-
-    border-radius:
-        12px;
-
-    padding:
-        14px 18px;
-
-    margin-top:
-        16px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--azul),
-            rgb(0, 92, 150)
-        );
-
-    color:
-        white;
-
-    font-weight:
-        700;
-
-    font-size:
-        14px;
-
-    cursor:
-        pointer;
-
-    box-shadow:
-        0 6px 16px rgba(29,127,184,0.14);
-
-    transition:
-        0.2s;
-}
-
-.botao-principal:hover {
-
-    transform:
-        translateY(-1px);
-
-    box-shadow:
-        0 9px 20px rgba(29,127,184,0.18);
-}
-
-.botao-principal:active {
-
-    transform:
-        scale(0.98);
-}
-
-
-/* =====================================================
-   REGISTROS
-   ===================================================== */
-
-.registro {
-
-    background:
-        var(--cinzaMuitoClaro);
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    border-radius:
-        14px;
-
-    padding:
-        16px;
-
-    margin-top:
-        12px;
-
-    line-height:
-        1.8;
-
-    font-size:
-        14px;
-}
-
-.registro strong {
-
-    color:
-        var(--azulEscuro);
-}
-
-
-/* =====================================================
-   BOTÃO EXCLUIR
-   ===================================================== */
-
-.botao-excluir {
-
-    border:
-        none;
-
-    background:
-        transparent;
-
-    color:
-        var(--vermelho);
-
-    font-weight:
-        700;
-
-    cursor:
-        pointer;
-
-    padding:
-        6px 0;
-
-    margin-top:
-        6px;
-
-    font-size:
-        13px;
-}
-
-.botao-excluir:hover {
-
-    text-decoration:
-        underline;
-}
-
-
-/* =====================================================
-   MENSAGEM VAZIA
-   ===================================================== */
-
-.vazio {
-
-    text-align:
-        center;
-
-    color:
-        var(--cinza);
-
-    background:
-        var(--cinzaMuitoClaro);
-
-    border:
-        1px dashed var(--cinzaClaro);
-
-    border-radius:
-        14px;
-
-    padding:
-        20px;
-
-    margin-top:
-        15px;
-
-    font-size:
-        14px;
-}
-
-
-/* =====================================================
-   FINANCEIRO
-   ===================================================== */
-
-.financeiro-card {
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--branco),
-            var(--cinzaMuitoClaro)
-        );
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    border-radius:
-        18px;
-
-    padding:
-        20px;
-
-    margin-top:
-        14px;
-
-    box-shadow:
-        0 5px 18px rgba(7,35,58,0.06);
-}
-
-.financeiro-card h3 {
-
-    margin:
-        0 0 8px;
-
-    color:
-        var(--cinza);
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-}
-
-.financeiro-card > strong {
-
-    display:
-        block;
-
-    color:
-        var(--azulEscuro);
-
-    font-size:
-        26px;
-
-    margin-top:
-        5px;
-}
-
-.financeiro-card p {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    gap:
-        10px;
-
-    padding:
-        9px 0;
-
-    border-bottom:
-        1px solid var(--cinzaClaro);
-
-    color:
-        var(--cinza);
-}
-
-.financeiro-card p:last-child {
-
-    border-bottom:
-        none;
-}
-
-.financeiro-card p strong {
-
-    color:
-        var(--azulEscuro);
-}
-
-
-/* =====================================================
-   METAS
-   ===================================================== */
-
-.meta-dashboard {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap:
-        15px;
-
-    margin-top:
-        18px;
-}
-
-.meta-card {
-
-    background:
-        var(--branco);
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    border-radius:
-        20px;
-
-    padding:
-        20px;
-
-    box-shadow:
-        var(--sombra);
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-}
-
-.meta-card::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        0;
-
-    left:
-        0;
-
-    width:
-        100%;
-
-    height:
-        4px;
-
-    background:
-        var(--azul);
-}
-
-.meta-card-topo {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    gap:
-        10px;
-
-    margin-bottom:
-        16px;
-}
-
-.meta-icone {
-
-    width:
-        42px;
-
-    height:
-        42px;
-
-    border-radius:
-        13px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    background:
-        var(--azulClaro);
-
-    font-size:
-        21px;
-}
-
-.meta-card h3 {
-
-    margin:
-        0;
-
-    font-size:
-        16px;
-
-    color:
-        var(--azulEscuro);
-}
-
-.meta-periodo {
-
-    color:
-        var(--cinza);
-
-    font-size:
-        11px;
-
-    margin-top:
-        3px;
-}
-
-.meta-valor {
-
-    font-size:
-        25px;
-
-    font-weight:
-        800;
-
-    color:
-        var(--azulEscuro);
-
-    margin:
-        10px 0;
-}
-
-.meta-realizado {
-
-    color:
-        var(--cinza);
-
-    font-size:
-        13px;
-
-    line-height:
-        1.6;
-}
-
-.meta-realizado strong {
-
-  color:
-    #F5F7FA;
-}
-
-.meta-restante {
-
-    margin-top:
-        10px;
-
-    color:
-        var(--verde);
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-}
-
-
-/* =====================================================
-   BARRA DE PROGRESSO
-   ===================================================== */
-
-.meta-progresso {
-
-    width:
-        100%;
-
-    height:
-        9px;
-
-    margin-top:
-        14px;
-
-    border-radius:
-        20px;
-
-    background:
-        var(--cinzaClaro);
-
-    overflow:
-        hidden;
-}
-
-.meta-progresso-barra {
-
-    height:
-        100%;
-
-    width:
-        0%;
-
-    border-radius:
-        inherit;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--azul),
-            var(--dourado)
-        );
-
-    transition:
-        width 0.4s ease;
-}
-
-.meta-percentual {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    margin-top:
-        7px;
-
-    font-size:
-        11px;
-
-    color:
-        var(--cinza);
-}
-
-
-/* =====================================================
-   META SEM DEFINIÇÃO
-   ===================================================== */
-
-.meta-sem-definicao {
-
-    border:
-        1px dashed var(--cinzaClaro);
-
-    background:
-        var(--cinzaMuitoClaro);
-
-    border-radius:
-        14px;
-
-    padding:
-        14px;
-
-    margin-top:
-        10px;
-}
-
-.meta-sem-definicao p {
-
-    color:
-        var(--cinza);
-
-    font-size:
-        13px;
-
-    margin-bottom:
-        8px;
-}
-
-.meta-sem-definicao input {
-
-    margin-top:
-        5px;
-}
-
-
-/* =====================================================
-   META BLOQUEADA
-   ===================================================== */
-
-.meta-bloqueada {
-
-    margin-top:
-        12px;
-
-    padding:
-        10px 12px;
-
-    border-radius:
-        10px;
-
-    background:
-        rgba(183,145,78,0.10);
-
-    color:
-        rgb(125,95,40);
-
-    font-size:
-        11px;
-
-    line-height:
-        1.5;
-}
-
-
-/* =====================================================
-   PAINEL DO DONO - METAS DOS BARBEIROS
-   ===================================================== */
-
-.editor-metas {
-
-    margin-top:
-        25px;
-
-    padding-top:
-        20px;
-
-    border-top:
-        1px solid var(--cinzaClaro);
-}
-
-.editor-metas h3 {
-
-    margin-top:
-        0;
-}
-
-.meta-editor-card {
-
-    background:
-        var(--cinzaMuitoClaro);
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    border-radius:
-        16px;
-
-    padding:
-        16px;
-
-    margin-top:
-        12px;
-}
-
-.meta-editor-card strong {
-
-    display:
-        block;
-
-    color:
-        var(--azulEscuro);
-
-    margin-bottom:
-        8px;
-}
-
-
-/* =====================================================
-   INDICADORES / BADGES
-   ===================================================== */
-
-.badge {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    gap:
-        5px;
-
-    padding:
-        5px 9px;
-
-    border-radius:
-        20px;
-
-    font-size:
-        10px;
-
-    font-weight:
-        700;
-}
-
-.badge-azul {
-
-    background:
-        var(--azulClaro);
-
-    color:
-        var(--azulEscuro);
-}
-
-.badge-verde {
-
-    background:
-        rgba(28,145,95,0.10);
-
-    color:
-        var(--verde);
-}
-
-.badge-dourado {
-
-    background:
-        rgba(183,145,78,0.13);
-
-    color:
-        rgb(125,95,40);
-}
-
-
-/* =====================================================
-   ÁREA DE SERVIÇOS MÚLTIPLOS
-   ===================================================== */
-
-#areaServicoLivre {
-
-    margin-top:
-        10px;
-
-    padding:
-        16px;
-
-    background:
-        var(--cinzaMuitoClaro);
-
-    border:
-        1px solid var(--cinzaClaro);
-
-    border-radius:
-        15px;
-}
-
-#sugestoesServico {
-
-    margin-top:
-        5px;
-}
-
-#sugestoesServico .registro {
-
-    margin-top:
-        6px;
-
-    background:
-        var(--branco);
-
-    cursor:
-        pointer;
-
-    transition:
-        0.2s;
-}
-
-#sugestoesServico .registro:hover {
-
-    border-color:
-    #F5F7FA;
-
-    transform:
-        translateX(2px);
-}
-
-
-/* =====================================================
-   LISTA DE CLIENTES
-   ===================================================== */
-
-#listaClientes,
-#listaBarbeiros,
-#resultadoPesquisaServicos,
-#listaServicosDia {
-
-    margin-top:
-        15px;
-}
-
-
-/* =====================================================
-   MENU INFERIOR
-   ===================================================== */
-
-.menu-inferior {
-
-    position:
-        fixed;
-
-    left:
-        0;
-
-    right:
-        0;
-
-    bottom:
-        0;
-
-    height:
-        72px;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(6, 1fr);
-
-    align-items:
-        stretch;
-
-    background:
-        rgba(7,35,58,0.98);
-
-    border-top:
-        1px solid rgba(255,255,255,0.08);
-
-    box-shadow:
-        0 -8px 25px rgba(0,0,0,0.12);
-
-    z-index:
-        1000;
-
-    backdrop-filter:
-        blur(10px);
-}
-
-.menu-inferior button {
-
-    border:
-        none;
-
-    background:
-        transparent;
-
-    color:
-        rgba(255,255,255,0.60);
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        4px;
-
-    cursor:
-        pointer;
-
-    transition:
-        0.2s;
-
-    position:
-        relative;
-}
-
-.menu-inferior button span {
-
-    font-size:
-        20px;
-
-    line-height:
-        1;
-}
-
-.menu-inferior button small {
-
-    font-size:
-        10px;
-
-    font-weight:
-        600;
-}
-
-.menu-inferior button:hover {
-
-    color:
-        white;
-}
-
-.menu-inferior button.ativo {
-
-    color:
-        gray;
-}
-
-.menu-inferior button.ativo::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        0;
-
-    left:
-        25%;
-
-    width:
-        50%;
-
-    height:
-        3px;
-
-    border-radius:
-        0 0 5px 5px;
-
-    background:
-        var(--dourado);
-}
-
-
-/* =====================================================
-   RESPONSIVIDADE
-   ===================================================== */
-
-@media (max-width: 800px) {
-
-    .meta-dashboard {
-
-        grid-template-columns:
-            1fr;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    body {
-        padding-bottom:
-            78px;
-    }
-
-    .topo {
-
-        min-height:
-            74px;
-
-        padding:
-            13px 17px;
-    }
-
-    .topo h1 {
-        font-size:
-            20px;
-    }
-
-    .icone {
-
-        width:
-            40px;
-
-        height:
-            40px;
-
-        font-size:
-            22px;
-    }
-
-    .banner {
-
-        margin:
-            15px;
-
-        padding:
-            22px;
-
-        border-radius:
-            18px;
-    }
-
-    .banner h2 {
-
-        font-size:
-            23px;
-    }
-
-    .conteudo {
-
-        padding:
-            0 15px 25px;
-    }
-
-    .cards {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap:
-            10px;
-    }
-
-    .card {
-
-        min-height:
-            135px;
-
-        padding:
-            15px;
-    }
-
-    .card span {
-
-        font-size:
-            24px;
-    }
-
-    .card strong {
-
-        font-size:
-            14px;
-    }
-
-    .card small {
-
-        font-size:
-            11px;
-    }
-
-    .painel {
-
-        padding:
-            18px;
-
-        border-radius:
-            18px;
-    }
-
-    .painel h2 {
-
-        font-size:
-            20px;
-    }
-
-    .financeiro-card {
-
-        padding:
-            16px;
-    }
-
-    .financeiro-card > strong {
-
-        font-size:
-            23px;
-    }
-
-    .menu-inferior {
-
-        height:
-            68px;
-    }
-
-    .menu-inferior button span {
-
-        font-size:
-            18px;
-    }
-}
-
-
-@media (max-width: 380px) {
-
-    .cards {
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .card {
-
-        min-height:
-            105px;
-
-        flex-direction:
-            row;
-
-        align-items:
-            center;
-
-        gap:
-            12px;
-    }
-
-    .card span {
-
-        margin:
-            0;
-    }
-
-    .card strong {
-
-        margin:
-            0;
-    }
-
-    .card small {
-
-        display:
-            block;
-    }
-}
-
-
-/* =====================================================
-   ANIMAÇÕES
-   ===================================================== */
-
-@keyframes aparecer {
-
-    from {
-
-        opacity:
-            0;
-
-        transform:
-            translateY(8px);
-    }
-
-    to {
-
-        opacity:
-            1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-.painel,
-.card,
-.financeiro-card,
-.meta-card {
-
-    animation:
-        aparecer 0.25s ease;
-}
-
-
-/* =====================================================
-   SELEÇÃO DE TEXTO
-   ===================================================== */
-
-::selection {
-
-    background:
-        var(--azul);
-
-    color:
-        gray;
-}
-
-
-/* =====================================================
-   SCROLLBAR
-   ===================================================== */
-
-::-webkit-scrollbar {
-
-    width:
-        8px;
-}
-
-::-webkit-scrollbar-track {
-
-    background:
-        var(--cinzaMuitoClaro);
-}
-
-::-webkit-scrollbar-thumb {
-
-    background:
-        rgb(170,180,190);
-
-    border-radius:
-        10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-
-    background:
-        var(--azul);
-}
-
-/* =====================================================
-   DARK BARBER PREMIUM — AJUSTES GERAIS
-   ===================================================== */
-
-body {
-    background: #0B0F14;
-    color: #F5F7FA;
+    min-height: 100vh;
+    padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px));
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    background: linear-gradient(160deg, var(--fundo-1), var(--fundo-2)) fixed;
+    -webkit-font-smoothing: antialiased;
 }
 
 button,
@@ -1936,457 +71,398 @@ input,
 select,
 textarea {
     font-family: inherit;
+    font-size: 15px;
 }
 
 button {
+    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* =====================================================
-   LOGIN
-   ===================================================== */
-
-.tela-login {
-    background:
-        radial-gradient(circle at top, rgba(29,127,184,0.14), transparent 38%),
-        linear-gradient(145deg, #04080C, #12171D 55%, #0B0F14);
+::selection {
+    background: var(--vermelho);
+    color: #ffffff;
 }
 
-.login-caixa {
-    background: #121820;
-    border: 1px solid #263442;
-    box-shadow: 0 20px 55px rgba(0,0,0,0.45);
+:focus-visible {
+    outline: 2px solid var(--azul);
+    outline-offset: 2px;
 }
 
-.login-caixa h1 {
-    color: #F5F7FA;
-}
-
-.login-caixa label {
-    color: #DCE5ED;
-}
-
-.login-caixa input,
-.login-caixa select {
-    background: #0B0F14;
-    color: #F5F7FA;
-    border-color: #263442;
-}
-
-.login-caixa input::placeholder {
-    color: #68798A;
-}
-
-.login-caixa input:focus,
-.login-caixa select:focus {
-    background: #0B0F14;
-    border-color: #1D7FB8;
-    box-shadow: 0 0 0 3px rgba(29,127,184,0.12);
-}
 
 /* =====================================================
-   CABEÇALHO
+   3. TIPOGRAFIA
    ===================================================== */
 
-.topo {
-    color: #F5F7FA;
-    background:
-        linear-gradient(135deg, #0D1116, #171D24);
-    border-bottom: 1px solid #2A323B;
-    box-shadow: 0 5px 22px rgba(0,0,0,0.30);
+h1,
+h2 {
+    color: var(--texto);
+    font-weight: 700;
 }
 
-.topo h1 {
-    color: #FFFFFF;
+/* Título de seção pequeno, em vermelho (igual ao modelo) */
+h3 {
+    margin: 22px 0 10px;
+    color: var(--vermelho);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.topo p {
-    color: #8FA5B8;
+p {
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-.icone {
-    background: rgba(29,127,184,0.12);
-    border: 1px solid rgba(25,167,255,0.18);
+small {
+    color: var(--texto-suave);
+    font-size: 12px;
 }
+
+label {
+    display: block;
+    margin: 16px 0 6px;
+    color: var(--texto);
+    font-size: 13px;
+    font-weight: 700;
+}
+
 
 /* =====================================================
-   BANNER PRINCIPAL
+   4. CAMPOS
    ===================================================== */
 
-.banner {
-    color: #F5F7FA;
-    background:
-        linear-gradient(135deg, #12171D, #101820 60%, #171D24);
-    border: 1px solid #2A323B;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-}
-
-.banner h2 {
-    color: #FFFFFF;
-}
-
-.banner p {
-    color: #AAB7C4;
-}
-
-/* =====================================================
-   CONTEÚDO
-   ===================================================== */
-
-.conteudo > h2 {
-    color: #F5F7FA;
-}
-
-/* =====================================================
-   CARDS PRINCIPAIS
-   ===================================================== */
-
-.card {
-    background: #121820;
-    color: #F5F7FA;
-    border: 1px solid #263442;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
-
-.card:hover {
-    background: #18212B;
-    border-color: #1D7FB8;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.38);
-}
-
-.card strong {
-    color: #F5F7FA;
-}
-
-.card small {
-    color: #8B98A7;
-}
-
-/* =====================================================
-   PAINÉIS
-   ===================================================== */
-
-.painel {
-    background: #121820;
-    border: 1px solid #263442;
-    box-shadow: 0 7px 22px rgba(0,0,0,0.26);
-}
-
-.painel h2,
-.painel h3 {
-    color: #F5F7FA;
-}
-
-.painel > p {
-    color: #8B98A7;
-}
-
-.painel label {
-    color: #DCE5ED;
-}
-
-/* =====================================================
-   FORMULÁRIOS
-   ===================================================== */
-
-.painel input,
-.painel select,
-.painel textarea {
+input,
+select,
+textarea {
     width: 100%;
-    background: #0B0F14;
-    color: #F5F7FA;
-    border: 1px solid #263442;
+    padding: 13px 14px;
+    color: var(--texto);
+    background: var(--campo);
+    border: 1px solid transparent;
+    border-radius: var(--raio-campo);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.painel textarea {
-    min-height: 110px;
+input::placeholder,
+textarea::placeholder {
+    color: #8a8580;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--vermelho);
+    box-shadow: 0 0 0 3px rgba(176, 58, 72, 0.15);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+textarea {
+    min-height: 100px;
     resize: vertical;
 }
 
-.painel input::placeholder,
-.painel textarea::placeholder {
-    color: #68798A;
-}
-
-.painel input:focus,
-.painel select:focus,
-.painel textarea:focus {
-    background: #0B0F14;
-    color: #FFFFFF;
-    border-color: #1D7FB8;
-    box-shadow: 0 0 0 3px rgba(29,127,184,0.12);
-}
-
-.painel input:disabled,
-.painel select:disabled {
-    background: #18212B;
-    color: #7D8B99;
+/* seta própria no select, como no modelo */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 38px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23555' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
 }
 
 select option {
-    background: #121820;
-    color: #F5F7FA;
+    color: var(--texto);
+    background: #ffffff;
 }
 
+
 /* =====================================================
-   BOTÕES
+   5. BOTÕES
    ===================================================== */
 
+/* principal: pílula vermelha, texto em maiúsculas */
 .botao-principal {
-    background:
-        linear-gradient(135deg, #1D7FB8, #005C96);
-    color: #FFFFFF;
-    box-shadow: 0 7px 18px rgba(0,119,190,0.28);
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    padding: 15px 18px;
+    color: #ffffff;
+    background: var(--vermelho);
+    border: none;
+    border-radius: 999px;
+    box-shadow: var(--sombra);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    transition: background 0.15s, transform 0.1s;
 }
 
 .botao-principal:hover {
-    background:
-        linear-gradient(135deg, #5BA9D6, #1D7FB8);
-    box-shadow: 0 10px 24px rgba(0,119,190,0.35);
+    background: var(--vermelho-escuro);
 }
 
-/* Botões secundários criados dentro dos painéis */
-.painel button:not(.botao-principal):not(.botao-excluir) {
-    border: 1px solid #263442;
-    border-radius: 12px;
-    background: #18212B;
-    color: #F5F7FA;
-    padding: 12px 16px;
-    cursor: pointer;
-    transition: 0.2s;
+.botao-principal:active {
+    transform: scale(0.98);
 }
 
-.painel button:not(.botao-principal):not(.botao-excluir):hover {
-    background: #20303F;
-    border-color: #1D7FB8;
+/* secundário: pílula off-white */
+.botao-secundario {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px 18px;
+    color: var(--texto);
+    background: var(--card);
+    border: none;
+    border-radius: 999px;
+    box-shadow: var(--sombra);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background 0.15s, transform 0.1s;
 }
 
-/* =====================================================
-   REGISTROS / LISTAS
-   ===================================================== */
-
-.registro {
-    background: #18212B;
-    border: 1px solid #263442;
-    color: #DCE5ED;
+.botao-secundario:hover {
+    background: #ffffff;
 }
 
-.registro strong {
-    color: #F5F7FA;
+.botao-secundario:active {
+    transform: scale(0.98);
 }
 
-.registro span {
-    color: #8B98A7;
-}
-
-.vazio {
-    background: #121820;
-    border-color: #344555;
-    color: #8B98A7;
-}
-
+/* excluir: pílula contornada em vermelho */
 .botao-excluir {
-    color: #FF6B6B;
+    margin-top: 8px;
+    padding: 8px 16px;
+    color: var(--vermelho);
+    background: transparent;
+    border: 1px solid var(--vermelho);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background 0.15s, color 0.15s;
 }
 
+.botao-excluir:hover {
+    color: #ffffff;
+    background: var(--vermelho);
+}
+
+/* Dia / Semana / Mês lado a lado */
+.botoes-periodo {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.botoes-periodo .botao-secundario {
+    flex: 1;
+    width: auto;
+    margin-top: 0;
+    padding: 12px 6px;
+    font-size: 12px;
+}
+
+
 /* =====================================================
-   FINANCEIRO
+   6. LOGIN
    ===================================================== */
 
-.financeiro-card {
-    background:
-        linear-gradient(145deg, #121820, #18212B);
-    border: 1px solid #263442;
-    box-shadow: 0 7px 22px rgba(0,0,0,0.28);
+.tela-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
 }
 
-.financeiro-card h3 {
-    color: #8B98A7;
+.login-caixa {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px 26px;
+    background: var(--card);
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
-.financeiro-card > strong {
-    color: #5BA9D6;
+.login-caixa h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-.financeiro-card p {
-    color: #9AA8B5;
-    border-bottom-color: #263442;
+.login-subtitulo {
+    margin: 4px 0 24px;
+    text-align: center;
 }
 
-.financeiro-card p strong {
-    color: #F5F7FA;
+.login-erro {
+    min-height: 20px;
+    margin-top: 12px;
+    text-align: center;
+    color: var(--vermelho);
+    font-size: 14px;
+    font-weight: 700;
 }
+
 
 /* =====================================================
-   METAS
+   7. CABEÇALHO ANTIGO (.topo)
+   Será removido do index.html no próximo passo.
    ===================================================== */
 
-.meta-card {
-    background: #121820;
-    border: 1px solid #263442;
-    box-shadow: 0 7px 22px rgba(0,0,0,0.28);
+.topo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px 18px;
 }
 
-.meta-card::before {
-    background: linear-gradient(90deg, #1D7FB8, #5BA9D6);
+.topo::after {
+    content: "";
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--vermelho) 50%, var(--azul) 50%);
 }
 
-.meta-icone {
-    background: rgba(29,127,184,0.12);
-    color: #5BA9D6;
+.topo h1 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
 
-.meta-card h3,
-.meta-valor {
-    color: #F5F7FA;
+.topo p {
+    margin-top: 2px;
+    color: var(--vermelho);
+    font-size: 11px;
+    letter-spacing: 3px;
 }
 
-.meta-periodo,
-.meta-realizado,
-.meta-percentual {
-    color: #8B98A7;
+.icone {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card);
+    border-radius: 14px;
+    box-shadow: var(--sombra-leve);
+    font-size: 22px;
 }
 
-.meta-realizado strong {
-    color: #FFFFFF;
-}
-
-.meta-restante {
-    color: #20C77A;
-}
-
-.meta-progresso {
-    background: #263442;
-}
-
-.meta-progresso-barra {
-    background: linear-gradient(90deg, #1D7FB8, #5BA9D6);
-}
-
-.meta-sem-definicao,
-.meta-editor-card,
-.meta-bloqueada {
-    background: #18212B;
-    border-color: #263442;
-}
-
-.meta-sem-definicao p {
-    color: #8B98A7;
-}
-
-.meta-bloqueada {
-    color: #D8B56D;
-}
-
-.editor-metas {
-    border-top-color: #263442;
-}
-
-.meta-editor-card strong {
-    color: #F5F7FA;
-}
 
 /* =====================================================
-   BADGES
+   8. ÁREA DE CONTEÚDO E PAINÉIS
    ===================================================== */
 
-.badge-azul {
-    background: rgba(29,127,184,0.12);
-    color: #5BA9D6;
+.conteudo {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px 24px;
 }
 
-.badge-verde {
-    background: rgba(28,145,95,0.16);
-    color: #20C77A;
+.painel {
+    width: 100%;
+    margin-top: 16px;
+    padding: 20px 18px;
+    background: var(--card);
+    border-radius: var(--raio-card);
 }
 
-.badge-dourado {
-    background: rgba(183,145,78,0.16);
-    color: #D8B56D;
+.painel h2 {
+    margin-bottom: 4px;
+    font-size: 24px;
+    font-weight: 700;
 }
+
+.painel > p {
+    margin-bottom: 16px;
+}
+
+/* painel dentro de painel (tela Clientes antiga) */
+.painel .painel {
+    margin-top: 16px;
+    padding: 16px;
+    background: var(--campo);
+    border-radius: 18px;
+}
+
 
 /* =====================================================
-   SERVIÇOS MÚLTIPLOS
+   9. CARDS DE ATALHO (.cards / .card)
    ===================================================== */
 
-#areaServicoLivre {
-    background: #0F161D;
-    border-color: #263442;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
 }
 
-#sugestoesServico .registro {
-    background: #18212B;
+.card {
+    min-height: 120px;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    color: var(--texto);
+    background: var(--campo);
+    border: none;
+    border-radius: 20px;
+    box-shadow: var(--sombra-leve);
+    transition: background 0.15s, transform 0.1s;
 }
 
-#sugestoesServico .registro:hover {
-    border-color: #1D7FB8;
+.card:hover {
+    background: #ffffff;
 }
+
+.card:active {
+    transform: scale(0.97);
+}
+
+.card span {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.card strong {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card small {
+    line-height: 1.35;
+}
+
 
 /* =====================================================
-   MENU INFERIOR
-   ===================================================== */
-
-.menu-inferior {
-    height: 74px;
-    background: rgba(5,10,15,0.97);
-    border-top: 1px solid #263442;
-    box-shadow: 0 -10px 28px rgba(0,0,0,0.40);
-    backdrop-filter: blur(14px);
-}
-
-.menu-inferior button {
-    color: #718091;
-}
-
-.menu-inferior button span {
-    color: inherit;
-}
-
-.menu-inferior button small {
-    color: inherit;
-}
-
-.menu-inferior button:hover {
-    color: #DCE5ED;
-}
-
-.menu-inferior button.ativo {
-    color: #5BA9D6;
-}
-
-.menu-inferior button.ativo::before {
-    background: #1D7FB8;
-    box-shadow: 0 0 10px rgba(29,127,184,0.35);
-}
-
-/* =====================================================
-   SELEÇÃO / SCROLLBAR
-   ===================================================== */
-
-::selection {
-    background: #1D7FB8;
-    color: #FFFFFF;
-}
-
-::-webkit-scrollbar-track {
-    background: #0B0F14;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #263442;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #1D7FB8;
-}
-
-/* =====================================================
-   DASHBOARD HOME — MODERNO / MASCULINO
+   10. HOME
    ===================================================== */
 
 .dashboard-home {
-    padding: 20px;
-    background: #0B0F14;
+    padding: 16px 0 0;
 }
 
 .dashboard-topo {
@@ -2394,74 +470,64 @@ select option {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 10px 4px;
 }
 
 .marca-dashboard {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .logo-dashboard {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 16px;
-    background: linear-gradient(145deg, #12171D, #1A222B);
-    border: 1px solid #28516C;
-    color: #FFFFFF;
-    font-size: 32px;
-    box-shadow: 0 7px 20px rgba(0,0,0,0.35);
+    color: #ffffff;
+    background: #1c1c1c;
+    border: 2px solid #3a3a3a;
+    border-radius: 50%;
+    font-size: 26px;
+    font-weight: 700;
 }
 
 .texto-marca h1 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: #F5F7FA;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .texto-marca p {
-    margin: 3px 0 0;
-    font-size: 12px;
-    font-weight: 700;
+    margin-top: 2px;
+    color: var(--vermelho);
+    font-size: 11px;
+    font-weight: 500;
     letter-spacing: 3px;
-    color: #5BA9D6;
 }
 
 .botao-notificacao {
-    width: 48px;
-    height: 48px;
-    border: 1px solid #263442;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card);
+    border: none;
     border-radius: 50%;
-    background: #121820;
-    color: #5BA9D6;
-    font-size: 23px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.botao-notificacao:hover {
-    transform: scale(1.05);
-    background: #18212B;
-    border-color: #1D7FB8;
+    box-shadow: var(--sombra-leve);
+    color: var(--texto);
 }
 
 .botao-notificacao:active {
-    transform: scale(0.95);
+    transform: scale(0.94);
 }
 
+/* faixa vermelho + azul-marinho */
 .faixa-marca-dashboard {
     display: flex;
-    width: 100%;
-    height: 4px;
-    margin-top: 10px;
-    overflow: hidden;
-    border-radius: 5px;
+    height: 3px;
+    margin-top: 12px;
 }
 
 .faixa-marca-dashboard span {
@@ -2469,930 +535,455 @@ select option {
 }
 
 .faixa-marca-dashboard span:first-child {
-    background: #1D7FB8;
+    background: var(--vermelho);
 }
 
 .faixa-marca-dashboard span:last-child {
-    background: #5BA9D6;
+    background: var(--azul);
 }
 
+/* card escuro de boas-vindas */
 .banner-dashboard {
     margin-top: 18px;
-    padding: 24px 22px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #12171D, #101820 60%, #171D24);
-    border: 1px solid #2A323B;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.38);
-    color: #F5F7FA;
-    position: relative;
-    overflow: hidden;
-}
-
-.banner-dashboard::after {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    right: -70px;
-    top: -80px;
-    border-radius: 50%;
-    background: rgba(29,127,184,0.10);
+    padding: 22px 20px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1c1c1c 0%, #262122 55%, #432f33 100%);
+    border-radius: 26px;
 }
 
 .banner-pequeno {
     display: block;
-    margin-bottom: 5px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #5BA9D6;
-    letter-spacing: 1px;
-    position: relative;
-    z-index: 1;
+    margin-bottom: 4px;
+    color: #8f9adb;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .banner-dashboard h2 {
-    margin: 0;
+    color: #ffffff;
     font-size: 28px;
-    font-weight: 800;
-    color: #FFFFFF;
-    position: relative;
-    z-index: 1;
+    font-weight: 700;
 }
 
 .banner-dashboard p {
-    margin: 8px 0 0;
+    margin-top: 6px;
+    color: #e8e3df;
     font-size: 15px;
-    color: #AAB7C4;
-    position: relative;
-    z-index: 1;
+}
+
+.banner-dashboard .botao-principal {
+    margin-top: 18px;
+}
+
+.banner-dashboard .faixa-marca-dashboard {
+    margin-top: 16px;
+}
+
+.dashboard-home > .botao-principal {
+    margin-top: 12px;
+}
+
+.bloco-info {
+    padding: 16px 18px;
+    background: var(--card);
+    border-radius: 18px;
+}
+
+.bloco-info strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.profissionais {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 22px;
+    padding: 14px;
+    background: var(--card);
+    border-radius: 18px;
+}
+
+.profissional {
+    min-width: 84px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.profissional strong {
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: var(--vermelho);
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .painel-dashboard {
-    margin-top: 24px;
+    margin-top: 22px;
 }
 
 .painel-dashboard h2 {
-    margin: 0;
     font-size: 22px;
-    color: #F5F7FA;
 }
 
 .subtitulo-dashboard {
-    margin: 5px 0 16px;
-    font-size: 13px;
-    color: #8B98A7;
+    margin: 4px 0 14px;
 }
 
 .cards-dashboard {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 16px;
 }
 
 .card-dashboard {
-    min-height: 145px;
-    padding: 18px;
-    border: 1px solid #263442;
-    border-radius: 16px;
-    background: #121820;
-    color: #F5F7FA;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    text-align: left;
-    cursor: pointer;
-    transition: 0.2s;
-    position: relative;
-}
-
-.card-dashboard::after {
-    content: "→";
-    position: absolute;
-    right: 15px;
-    bottom: 13px;
-    color: #5BA9D6;
-    font-size: 19px;
-    opacity: 0.85;
+    min-height: 96px;
+    padding: 14px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    color: var(--texto);
+    background: var(--card);
+    border: none;
+    border-radius: 22px;
+    box-shadow: var(--sombra-leve);
+    transition: background 0.15s, transform 0.1s;
 }
 
 .card-dashboard:hover {
-    transform: translateY(-3px);
-    background: #18212B;
-    border-color: #1D7FB8;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.38);
+    background: #ffffff;
 }
 
 .card-dashboard:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
+}
+
+/* ícones de traço fino: herdam a cor do texto */
+.icone-card,
+.botao-notificacao,
+.menu-inferior button span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone-card svg,
+.botao-notificacao svg,
+.menu-inferior button svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .icone-card {
-    display: block;
-    margin-bottom: 12px;
-    font-size: 30px;
+    height: 26px;
+    color: var(--vermelho);
+}
+
+.icone-card svg {
+    width: 26px;
+    height: 26px;
+}
+
+.icone-texto {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.botao-notificacao svg {
+    width: 22px;
+    height: 22px;
+}
+
+.menu-inferior button svg {
+    width: 25px;
+    height: 25px;
 }
 
 .card-dashboard strong {
-    display: block;
-    font-size: 17px;
-    color: #F5F7FA;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .card-dashboard small {
+    line-height: 1.35;
+}
+
+
+/* =====================================================
+   11. RESUMOS (.financeiro-card)
+   ===================================================== */
+
+.financeiro-card {
+    margin-top: 14px;
+    padding: 18px;
+    background: var(--card);
+    border-radius: var(--raio-card);
+}
+
+.financeiro-card h3 {
+    margin: 0 0 8px;
+}
+
+.financeiro-card > strong {
     display: block;
-    margin-top: 5px;
-    font-size: 12px;
-    line-height: 1.4;
-    color: #8B98A7;
+    margin-top: 4px;
+    font-size: 26px;
+    font-weight: 700;
 }
 
-.dashboard-home .financeiro-card,
-.dashboard-home .meta-card,
-.dashboard-home .painel-dashboard > div {
-    color: #F5F7FA;
+.financeiro-card p {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    padding: 9px 0;
+    color: var(--texto-suave);
+    border-bottom: 1px solid var(--linha);
 }
 
-/* =====================================================
-   RESPONSIVIDADE
-   ===================================================== */
-
-@media (max-width: 800px) {
-    .meta-dashboard {
-        grid-template-columns: 1fr;
-    }
+.financeiro-card p:last-child {
+    border-bottom: none;
 }
 
-@media (max-width: 600px) {
-
-    body {
-        padding-bottom: 82px;
-    }
-
-    .dashboard-home {
-        padding: 16px;
-    }
-
-    .dashboard-topo {
-        padding: 8px 2px;
-    }
-
-    .logo-dashboard {
-        width: 56px;
-        height: 56px;
-        font-size: 28px;
-    }
-
-    .texto-marca h1 {
-        font-size: 19px;
-    }
-
-    .texto-marca p {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-
-    .botao-notificacao {
-        width: 42px;
-        height: 42px;
-        font-size: 21px;
-    }
-
-    .banner-dashboard {
-        padding: 21px 18px;
-    }
-
-    .banner-dashboard h2 {
-        font-size: 24px;
-    }
-
-    .banner-dashboard p {
-        font-size: 14px;
-    }
-
-    .cards-dashboard {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-    }
-
-    .card-dashboard {
-        min-height: 135px;
-        padding: 14px;
-    }
-
-    .icone-card {
-        font-size: 26px;
-    }
-
-    .card-dashboard strong {
-        font-size: 14px;
-    }
-
-    .card-dashboard small {
-        font-size: 11px;
-    }
-
-    .menu-inferior {
-        height: 68px;
-    }
-
-    .menu-inferior button span {
-        font-size: 18px;
-    }
+.financeiro-card strong {
+    color: var(--texto);
 }
-
-@media (max-width: 380px) {
-
-    .cards,
-    .cards-dashboard {
-        grid-template-columns: 1fr;
-    }
-
-    .card,
-    .card-dashboard {
-        min-height: 105px;
-    }
-
-    .card {
-        flex-direction: row;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .card span {
-        margin: 0;
-    }
-
-    .card strong {
-        margin: 0;
-    }
-
-    .card small {
-        display: block;
-    }
-
-    .card-dashboard {
-        min-height: 110px;
-    }
-}
-
 
 
 /* =====================================================
-   DARK PREMIUM BARBER — ACABAMENTO FINAL
-   Preto/grafite predominante.
-   Azul somente como destaque.
+   12. LISTAS E REGISTROS
    ===================================================== */
 
-html,
-body {
-    background: #0B0E12 !important;
-    color: #F5F7FA;
+.registro {
+    margin-top: 10px;
+    padding: 14px 16px;
+    color: var(--texto);
+    background: var(--campo);
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.7;
 }
 
-body {
-    background:
-        radial-gradient(circle at 50% -10%, rgba(255,255,255,0.025), transparent 34%),
-        linear-gradient(180deg, #0B0E12 0%, #090C10 100%) !important;
+.registro strong {
+    color: var(--texto);
+    font-weight: 700;
 }
 
-/* Áreas principais */
-main,
-.app,
-#appPrincipal {
-    background: transparent !important;
+.registro span {
+    color: var(--texto-suave);
 }
 
-/* Cards */
-.card,
-.cartao,
-.painel,
-.dashboard-card,
-.dashboard-home .card,
-.resumo-card,
-.meta-card,
-.financeiro-card,
-.cliente-card,
-.servico-card {
-    background: linear-gradient(145deg, #151A20, #101419) !important;
-    border: 1px solid #29313A !important;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.30) !important;
+.registro.cliente-item {
+    cursor: pointer;
+    transition: background 0.15s;
 }
 
-/* Evita aparência de "card azul" */
-.dashboard-home .card::before,
-.dashboard-home .card::after,
-.card::before,
-.card::after {
-    opacity: 0.18;
+.registro.cliente-item:hover {
+    background: #e8e4df;
 }
 
-/* Banner */
-.banner,
-.banner-home,
-.dashboard-home .banner {
-    background:
-        radial-gradient(circle at 100% 0%, rgba(29,127,184,0.10), transparent 30%),
-        linear-gradient(145deg, #151A20 0%, #0E1217 100%) !important;
-    border: 1px solid #29313A !important;
+/* retornos de clientes */
+.retorno-proximo {
+    border-left: 4px solid var(--amarelo);
 }
 
-/* Títulos */
-h1,
-h2,
-h3,
-h4,
-.titulo,
-.titulo-painel {
-    color: #F5F7FA;
+.retorno-hoje {
+    border-left: 4px solid var(--azul);
 }
 
-p,
-.subtitulo,
-.descricao,
-small {
-    color: #9AA4AF;
+.retorno-atrasado {
+    border-left: 4px solid var(--vermelho);
 }
 
-/* Azul: apenas destaque */
-a,
-.link,
-.destaque,
-.valor-destaque {
-    color: #5BA9D6;
+.vazio {
+    margin-top: 14px;
+    padding: 18px;
+    text-align: center;
+    color: var(--texto-suave);
+    background: transparent;
+    border: 1px dashed #cdc7bf;
+    border-radius: 14px;
+    font-size: 14px;
 }
 
-/* Botão principal */
-button.botao-principal,
-.btn-principal,
-button[type="submit"] {
-    background: linear-gradient(135deg, #1D7FB8, #17648F) !important;
-    color: #FFFFFF !important;
-    border: 1px solid rgba(91,169,214,0.35) !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.30) !important;
+#listaClientes,
+#listaBarbeiros,
+#resultadoPesquisaServicos,
+#listaServicosDia {
+    margin-top: 14px;
 }
 
-button.botao-principal:hover,
-.btn-principal:hover,
-button[type="submit"]:hover {
-    background: linear-gradient(135deg, #268FC9, #1D7FB8) !important;
+#areaServicoLivre {
+    margin-top: 10px;
+    padding: 14px;
+    background: var(--campo);
+    border-radius: 16px;
 }
 
-/* Botões secundários */
-button:not(.botao-principal):not(.btn-principal):not([type="submit"]) {
-    background: #181E24 !important;
-    color: #D9DEE4 !important;
-    border-color: #303944 !important;
+#sugestoesServico .registro {
+    background: var(--card);
+    cursor: pointer;
 }
 
-button:not(.botao-principal):not(.btn-principal):not([type="submit"]):hover {
-    background: #20272F !important;
-    border-color: #46515D !important;
+#sugestoesServico .registro:hover {
+    background: #ffffff;
 }
 
-/* Campos */
-input,
-select,
-textarea {
-    background: #10151A !important;
-    color: #F1F3F5 !important;
-    border: 1px solid #303944 !important;
+
+/* =====================================================
+   13. BARRAS DE PROGRESSO (metas)
+   Use estas classes no lugar dos style="..." do app.js
+   ===================================================== */
+
+.meta-progresso {
+    width: 100%;
+    height: 8px;
+    margin-top: 8px;
+    overflow: hidden;
+    background: #ddd8d1;
+    border-radius: 999px;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #1D7FB8 !important;
-    box-shadow: 0 0 0 3px rgba(29,127,184,0.10) !important;
+.meta-progresso-barra {
+    height: 100%;
+    width: 0;
+    background: var(--vermelho);
+    border-radius: inherit;
+    transition: width 0.4s ease;
 }
 
-/* Financeiro */
-.valor,
-.faturamento,
-.total,
-.valor-total {
-    color: #F5F7FA;
+
+/* =====================================================
+   14. MENU INFERIOR
+   Funciona com qualquer quantidade de botões visíveis
+   (grid-auto-flow: column), então esconder o botão
+   Barbeiros não deixa buraco.
+   ===================================================== */
+
+.menu-inferior {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    height: calc(68px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    background: var(--menu);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.comissao {
-    color: #CAA554;
-    color: #CAA554;
+.menu-inferior button {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: var(--texto);
+    background: transparent;
+    border: none;
+    transition: color 0.15s;
 }
 
-.restante,
-.positivo,
-.sucesso {
-    color: #45AB70;
+.menu-inferior button span {
+    line-height: 1;
 }
 
-/* Metas */
-.meta-card,
-.card-meta {
-    border-left: 3px solid #CAA554 !important;
+.menu-inferior button small {
+    color: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
-.progress-bar,
-.barra-progresso {
-    background: #242B33 !important;
+.menu-inferior button.ativo {
+    color: var(--vermelho);
 }
 
-.progress-bar > *,
-.barra-progresso > * {
-    background: linear-gradient(90deg, #CAA554, #E0BF69) !important;
+.menu-inferior button.ativo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: var(--vermelho);
+    border-radius: 0 0 4px 4px;
 }
 
-/* Menu inferior */
-.menu-inferior,
-#menuInferior {
-    background: rgba(8,11,14,0.97) !important;
-    border-top: 1px solid #252C34 !important;
-    box-shadow: 0 -12px 30px rgba(0,0,0,0.38) !important;
-}
 
-.menu-inferior .ativo,
-#menuInferior .ativo {
-    color: #5BA9D6 !important;
-    border-top-color: #1D7FB8 !important;
-}
+/* =====================================================
+   15. SCROLLBAR
+   ===================================================== */
 
-/* Ícones do menu: deixa a maioria neutra */
-.menu-inferior .icone,
-.menu-inferior svg,
-#menuInferior svg {
-    filter: saturate(0.45);
-}
-
-/* Seleção / badges */
-.badge,
-.tag,
-.status {
-    background: #1B2229 !important;
-    color: #C8D0D8 !important;
-    border: 1px solid #303944 !important;
-}
-
-/* Verde e vermelho continuam semânticos */
-.sucesso,
-.badge-sucesso {
-    color: #45AB70 !important;
-}
-
-.erro,
-.alerta,
-.excluir,
-.botao-excluir {
-    color: #D66A6A !important;
-}
-
-.botao-excluir {
-    background: #241719 !important;
-    border-color: #4A282B !important;
-}
-
-/* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #0B0E12;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #303944;
+    background: #c9c3bb;
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #46515D;
-}
 
-/* Responsivo */
-@media (max-width: 700px) {
-    .card,
-    .cartao,
-    .painel {
-        box-shadow: 0 8px 20px rgba(0,0,0,0.25) !important;
+/* =====================================================
+   16. TELAS MAIORES E MOVIMENTO REDUZIDO
+   ===================================================== */
+
+@media (min-width: 700px) {
+
+    .cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
+@media (max-width: 360px) {
 
-/* =====================================================
-   CORREÇÃO V2 — CARDS INTERNOS DO DASHBOARD
-   Evita que blocos antigos fiquem brancos.
-   ===================================================== */
-
-.dashboard-home .painel-dashboard > div,
-.dashboard-home .painel-dashboard > section,
-.dashboard-home .painel-dashboard .card,
-.dashboard-home .painel-dashboard .meta-card,
-.dashboard-home .painel-dashboard .financeiro-card {
-    background: linear-gradient(145deg, #151A20, #101419) !important;
-    color: #F5F7FA !important;
-    border-color: #29313A !important;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.30) !important;
-}
-
-/* Blocos de progresso */
-.dashboard-home .meta-progresso,
-.dashboard-home .progresso,
-.dashboard-home .barra-progresso {
-    background: #252C34 !important;
-}
-
-/* A barra preenchida continua sendo o ponto de azul */
-.dashboard-home .meta-progresso-barra {
-    background: linear-gradient(90deg, #1D7FB8, #5BA9D6) !important;
-}
-
-/* Textos dentro dos cards */
-.dashboard-home .painel-dashboard > div *,
-.dashboard-home .painel-dashboard .meta-card * {
-    color: inherit;
-}
-
-.dashboard-home .painel-dashboard > div p,
-.dashboard-home .painel-dashboard > div span,
-.dashboard-home .painel-dashboard > div label,
-.dashboard-home .painel-dashboard .meta-periodo {
-    color: #9AA4AF !important;
-}
-
-.dashboard-home .painel-dashboard > div strong,
-.dashboard-home .painel-dashboard .meta-realizado strong,
-.dashboard-home .painel-dashboard .meta-valor {
-    color: #F5F7FA !important;
-}
-
-/* Azul somente nos indicadores realmente importantes */
-.dashboard-home .meta-progresso-barra,
-.dashboard-home .botao-principal,
-.dashboard-home .btn-principal {
-    box-shadow: none;
-}
-
-/* Dourado para o destaque de meta */
-.dashboard-home .meta-restante,
-.dashboard-home .meta-atingida {
-    color: #CAA554 !important;
-}
-
-
-/* =====================================================
-   CORREÇÃO V3 — ELIMINA O CARD BRANCO DO PROGRESSO
-   Alguns elementos do Dashboard recebem background inline
-   ou classes genéricas. Estas regras têm prioridade.
-   ===================================================== */
-
-/* Qualquer bloco interno do Dashboard que esteja branco */
-.dashboard-home [style*="background"],
-.dashboard-home [style*="background-color"],
-.dashboard-home .financeiro-card > div,
-.dashboard-home .financeiro-card > section,
-.dashboard-home .financeiro-card .card,
-.dashboard-home .financeiro-card .meta-card {
-    background: linear-gradient(145deg, #171C22, #11161B) !important;
-    background-color: #151A20 !important;
-    color: #F5F7FA !important;
-    border-color: #303841 !important;
-}
-
-/* O próprio bloco de progresso nunca deve ficar branco */
-.dashboard-home .meta-progresso,
-.dashboard-home .barra-progresso,
-.dashboard-home .progresso,
-.dashboard-home [class*="progresso"] {
-    background: #2A3037 !important;
-}
-
-/* Mas a parte preenchida continua destacada */
-.dashboard-home .meta-progresso-barra,
-.dashboard-home [class*="progresso"] [class*="barra"] {
-    background: linear-gradient(90deg, #1D7FB8, #5BA9D6) !important;
-}
-
-/* Textos do card interno */
-.dashboard-home .financeiro-card > div h3,
-.dashboard-home .financeiro-card > div p,
-.dashboard-home .financeiro-card > div span,
-.dashboard-home .financeiro-card > div strong,
-.dashboard-home .financeiro-card > div label {
-    color: #D9DEE4 !important;
-}
-
-.dashboard-home .financeiro-card > div strong {
-    color: #F5F7FA !important;
-}
-
-/* Mantém o botão de abrir metas como destaque */
-.dashboard-home .financeiro-card .botao-principal {
-    background: linear-gradient(135deg, #1D7FB8, #17648F) !important;
-    color: #FFFFFF !important;
-}
-/* =====================================================
-   ACABAMENTO VISUAL — ETAPA 2
-   CARDS PRINCIPAIS
-   ===================================================== */
-
-.card {
-    position: relative;
-    overflow: hidden;
-
-    border-radius: 18px !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            #171C22,
-            #101419
-        ) !important;
-
-    border: 1px solid #29313A !important;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.28) !important;
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-}
-
-/* Linha de destaque no topo */
-
-.card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-    right: 0;
-
-    height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #1D7FB8,
-            #5BA9D6
-        );
-
-    opacity: 0.9;
-}
-
-/* Efeito ao passar o mouse */
-
-.card:hover {
-    transform: translateY(-3px);
-
-    background:
-        linear-gradient(
-            145deg,
-            #1B2229,
-            #12171C
-        ) !important;
-
-    border-color: #1D7FB8 !important;
-
-    box-shadow:
-        0 14px 30px rgba(0,0,0,0.38) !important;
-}
-
-/* Ícone do card */
-
-.card span {
-    transition:
-        transform 0.2s ease;
-}
-
-.card:hover span {
-    transform: scale(1.06);
-}
-
-/* Título */
-
-.card strong {
-    color: #F5F7FA !important;
-
-    font-weight: 800;
-}
-
-/* Descrição */
-
-.card small {
-    color: #8F9BA7 !important;
-}
-
-/* Toque ao clicar */
-
-.card:active {
-    transform: scale(0.98);
-}
-
-
-/* =====================================================
-   CARDS NO CELULAR
-   ===================================================== */
-
-@media (max-width: 600px) {
-
-    .card {
-        border-radius: 16px !important;
-
-        box-shadow:
-            0 7px 18px rgba(0,0,0,0.25) !important;
+    .cards {
+        grid-template-columns: 1fr;
     }
 
-    .card:hover {
-        transform: none;
-    }
-
-    .card:active {
-        transform: scale(0.97);
+    .banner-dashboard h2 {
+        font-size: 24px;
     }
 }
-/* =====================================================
-   ACABAMENTO VISUAL — ETAPA 3
-   BOTÕES
-   ===================================================== */
 
-button,
-.botao,
-.btn-principal,
-button[type="submit"] {
-    border-radius: 12px !important;
+@media (prefers-reduced-motion: reduce) {
 
-    border: 1px solid #1D7FB8 !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1D7FB8,
-            #17658F
-        ) !important;
-
-    color: #FFFFFF !important;
-
-    font-weight: 700;
-
-    box-shadow:
-        0 6px 16px rgba(0,0,0,0.25);
-
-    transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
-}
-
-
-/* =====================================================
-   EFEITO AO PASSAR O MOUSE
-   ===================================================== */
-
-button:hover,
-.botao:hover,
-.btn-principal:hover,
-button[type="submit"]:hover {
-
-    background:
-        linear-gradient(
-            145deg,
-            #248FC9,
-            #1D7FB8
-        ) !important;
-
-    box-shadow:
-        0 9px 20px rgba(0,0,0,0.32);
-
-    transform: translateY(-2px);
-}
-
-
-/* =====================================================
-   EFEITO AO CLICAR
-   ===================================================== */
-
-button:active,
-.botao:active,
-.btn-principal:active,
-button[type="submit"]:active {
-
-    transform: scale(0.96);
-
-    box-shadow:
-        0 3px 8px rgba(0,0,0,0.25);
-}
-
-
-/* =====================================================
-   BOTÕES SECUNDÁRIOS
-   ===================================================== */
-
-button.secundario,
-.btn-secundario {
-
-    background:
-        #151A20 !important;
-
-    border:
-        1px solid #29313A !important;
-
-    color:
-        #DCE3EA !important;
-
-    box-shadow:
-        none;
-}
-
-
-button.secundario:hover,
-.btn-secundario:hover {
-
-    background:
-        #1B2229 !important;
-
-    border-color:
-        #1D7FB8 !important;
-
-    color:
-        #FFFFFF !important;
-}
-
-
-/* =====================================================
-   BOTÕES NO CELULAR
-   ===================================================== */
-
-@media (max-width: 600px) {
-
-    button,
-    .botao,
-    .btn-principal,
-    button[type="submit"] {
-
-        border-radius: 11px !important;
-
-        box-shadow:
-            0 5px 13px rgba(0,0,0,0.22);
-    }
-
-    button:hover,
-    .botao:hover,
-    .btn-principal:hover,
-    button[type="submit"]:hover {
-
-        transform: none;
-    }
-
-    button:active,
-    .botao:active,
-    .btn-principal:active,
-    button[type="submit"]:active {
-
-        transform: scale(0.95);
-    }
-}
-/* =====================================================
-   ACABAMENTO VISUAL — MENU INFERIOR
-   ===================================================== */
-
-.menu-inferior {
-    gap: 4px !important;
-    padding: 8px 6px !important;
-}
-
-.menu-inferior button {
-    min-width: 0 !important;
-    padding: 8px 2px !important;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    gap: 3px;
-
-    font-size: 11px !important;
-
-    white-space: nowrap;
-}
-
-.menu-inferior button span {
-    font-size: 18px;
-}
-
-@media (max-width: 600px) {
-
-    .menu-inferior {
-        gap: 2px !important;
-        padding: 7px 4px !important;
-    }
-
-    .menu-inferior button {
-        padding: 7px 1px !important;
-        font-size: 10px !important;
-    }
-
-    .menu-inferior button span {
-        font-size: 17px;
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
 }

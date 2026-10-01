@@ -3,15 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f3f1ee">
 
     <title>Martins Barbearia</title>
 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231c1c1c'/><text x='50' y='67' font-size='54' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'>M</text></svg>">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- =====================================================
+         LOGIN
+         ===================================================== -->
     <div id="telaLogin" class="tela-login">
 
         <div class="login-caixa">
@@ -19,18 +24,18 @@
             <h1>MARTINS BARBEARIA</h1>
             <p class="login-subtitulo">Acesso ao sistema</p>
 
-            <label>Entrar como</label>
+            <label for="loginTipo">Entrar como</label>
             <select id="loginTipo">
                 <option value="barbeiro">Barbeiro</option>
                 <option value="dono">Dono</option>
             </select>
 
             <div id="loginCampoBarbeiro">
-                <label>Barbeiro</label>
+                <label for="loginBarbeiro">Barbeiro</label>
                 <select id="loginBarbeiro"></select>
             </div>
 
-            <label>Senha</label>
+            <label for="loginSenha">Senha</label>
             <input type="password" id="loginSenha" placeholder="Digite a senha">
 
             <button class="botao-principal" id="btnEntrar">Entrar</button>
@@ -41,217 +46,49 @@
 
     </div>
 
+
+    <!-- =====================================================
+         APP
+         ===================================================== -->
     <div id="appPrincipal" style="display:none;">
 
-        <header class="topo">
+        <main>
 
-            <div>
-                <h1>MARTINS BARBEARIA</h1>
-                <p>BARBEARIA</p>
-            </div>
+            <!-- Todas as telas (Home, Serviços, Clientes, Conta...)
+                 são desenhadas aqui dentro pelo app.js -->
+            <section class="conteudo">
+                <div id="app"></div>
+            </section>
 
-            <div class="icone">💈</div>
+        </main>
 
-        </header>
-
-
-       <main>
-
-    <section class="dashboard-home">
-
-        <!-- TOPO DO DASHBOARD -->
-        <div class="dashboard-topo">
-
-            <div class="marca-dashboard">
-
-                <div class="logo-dashboard">
-                    💈
-                </div>
-
-                <div class="texto-marca">
-                    <h1>MARTINS</h1>
-                    <p>BARBEARIA</p>
-                </div>
-
-            </div>
-
-            <button
-                id="btnNotificacoes"
-                class="botao-notificacao"
-                title="Notificações"
-            >
-                🔔
-            </button>
-
-        </div>
-
-
-        <!-- FAIXA DA MARCA -->
-        <div class="faixa-marca-dashboard">
-
-            <span></span>
-            <span></span>
-
-        </div>
-
-
-        <!-- BANNER PRINCIPAL -->
-        <section class="banner-dashboard">
-
-            <span class="banner-pequeno">
-                BEM-VINDO À
-            </span>
-
-            <h2>
-              MARTINS BARBEARIA
-            </h2>
-
-            <p>
-                Seu estilo começa aqui.
-            </p>
-
-        </section>
-
-
-        <!-- PAINEL -->
-        <section class="painel-dashboard">
-
-            <h2>
-                Painel
-            </h2>
-
-            <p class="subtitulo-dashboard">
-                Acesso rápido às principais funções
-            </p>
-
-
-            <div class="cards-dashboard">
-
-                <button
-                    class="card-dashboard"
-                    id="btnServicos"
-                >
-                    <span class="icone-card">
-                        ✂️
-                    </span>
-
-                    <strong>
-                        Serviços
-                    </strong>
-
-                    <small>
-                        Registrar serviço
-                    </small>
-
-                </button>
-
-
-                <button
-                    class="card-dashboard"
-                    id="btnBarbeiros"
-                >
-                    <span class="icone-card">
-                        💈
-                    </span>
-
-                    <strong>
-                        Barbeiros
-                    </strong>
-
-                    <small>
-                        Gerenciar profissionais
-                    </small>
-
-                </button>
-
-
-                <button
-                    class="card-dashboard"
-                    id="btnFinanceiro"
-                >
-                    <span class="icone-card">
-                        💰
-                    </span>
-
-                    <strong>
-                        Financeiro
-                    </strong>
-
-                    <small>
-                        Ver movimentações
-                    </small>
-
-                </button>
-
-
-                <button
-                    class="card-dashboard"
-                    id="btnClientes"
-                >
-                    <span class="icone-card">
-                        👤
-                    </span>
-
-                    <strong>
-                        Clientes
-                    </strong>
-
-                    <small>
-                        Cadastrar e pesquisar
-                    </small>
-
-                </button>
-
-            </div>
-
-        </section>
-
-    </section>
-
-    <!-- ÁREA DAS OUTRAS TELAS -->
-    <section class="conteudo">
-
-        <div id="app"></div>
-
-    </section>
-
-</main>
-
-
+        <!-- Menu inferior: 4 abas, como no modelo.
+             Barbeiros e Financeiro agora abrem pelos atalhos da Home. -->
         <nav class="menu-inferior">
 
             <button id="menuHome">
-                <span>🏠</span>
+                <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.5 12 4l8.5 7.5"/><path d="M5.5 10v9.5h13V10"/></svg></span>
                 <small>Home</small>
             </button>
 
             <button id="menuServicos">
-                <span>✂️</span>
+                <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h2M10 7h9M5 12h2M10 12h9M5 17h2M10 17h9"/></svg></span>
                 <small>Serviços</small>
             </button>
 
-            <button id="menuBarbeiros">
-                <span>👨‍🦱</span>
-                <small>Barbeiros</small>
+            <button id="menuClientes">
+                <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3.2"/><path d="M6 20c0-3.6 2.7-6 6-6s6 2.4 6 6z"/></svg></span>
+                <small>Clientes</small>
             </button>
 
-            <button id="menuFinanceiro">
-                <span>💰</span>
-                <small>Financeiro</small>
-            </button>
-<button id="menuClientes">
-    <span>👥</span>
-    <small>Clientes</small>
-</button>
             <button id="menuConta">
-                <span>👤</span>
+                <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3.2"/><path d="M6 20c0-3.6 2.7-6 6-6s6 2.4 6 6z"/></svg></span>
                 <small>Conta</small>
             </button>
 
         </nav>
 
     </div>
-
 
     <script src="app.js"></script>
 

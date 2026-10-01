@@ -1117,22 +1117,19 @@ document.addEventListener("DOMContentLoaded", function () {
             {
                 chave: "diaria",
                 titulo: "Meta diária",
-                periodo: "Hoje",
-                icone: "☀️"
+                periodo: "Hoje"
             },
 
             {
                 chave: "semanal",
                 titulo: "Meta semanal",
-                periodo: "Segunda a domingo",
-                icone: "📅"
+                periodo: "Segunda a domingo"
             },
 
             {
                 chave: "mensal",
                 titulo: "Meta mensal",
-                periodo: "Mês atual",
-                icone: "🗓️"
+                periodo: "Mês atual"
             }
 
         ];
@@ -1142,7 +1139,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="painel">
 
                 <h3>
-                    💈 Metas de ${escaparHTML(barbeiro)}
+                    Metas de ${escaparHTML(barbeiro)}
                 </h3>
 
                 <p>
@@ -1190,74 +1187,53 @@ document.addEventListener("DOMContentLoaded", function () {
                             >
 
                                 <h3>
-                                    ${tipo.icone}
+                                    
                                     ${tipo.titulo}
                                 </h3>
 
                                 <p>
-                                    📆 ${tipo.periodo}
+                                    ${tipo.periodo}
                                 </p>
 
                                 ${
                                     meta
                                         ? `
                                             <p>
-                                                🎯 Meta:
+                                                Meta:
                                                 <strong>
                                                     R$ ${formatarMoeda(valorMeta)}
                                                 </strong>
                                             </p>
 
                                             <p>
-                                                💰 Realizado:
+                                                Realizado:
                                                 <strong>
                                                     R$ ${formatarMoeda(realizado.total)}
                                                 </strong>
                                             </p>
 
                                             <p>
-                                                📊 Progresso:
+                                                Progresso:
                                                 <strong>
                                                     ${percentual.toFixed(1)}%
                                                 </strong>
                                             </p>
 
                                             <p>
-                                                ⏳ Falta:
+                                                Falta:
                                                 <strong>
                                                     R$ ${formatarMoeda(restante)}
                                                 </strong>
                                             </p>
 
                                             <p>
-                                                ✂️ Serviços:
+                                                Serviços:
                                                 <strong>
                                                     ${realizado.quantidade}
                                                 </strong>
                                             </p>
 
-                                            <div
-                                                style="
-                                                    width:100%;
-                                                    height:10px;
-                                                    background:#e5e5e5;
-                                                    border-radius:10px;
-                                                    overflow:hidden;
-                                                    margin:12px 0;
-                                                "
-                                            >
-
-                                                <div
-                                                    style="
-                                                        width:${percentual}%;
-                                                        height:100%;
-                                                        background:#0077be;
-                                                        border-radius:10px;
-                                                    "
-                                                >
-                                                </div>
-
-                                            </div>
+                                            <div class="meta-progresso"><div class="meta-progresso-barra" style="width:${percentual}%;"></div></div>
 
                                         `
                                         : `
@@ -1288,8 +1264,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                     ${
                                         meta
-                                            ? "✏️ Alterar meta"
-                                            : "🎯 Definir meta"
+                                            ? "Alterar meta"
+                                            : "Definir meta"
                                     }
 
                                 </button>
@@ -1330,7 +1306,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
    function mostrarMetas() {
 
-    ativarMenu("");
+    ativarMenu("menuHome");
 
     const sessao = obterSessao();
 
@@ -1356,20 +1332,17 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             chave: "diaria",
             titulo: "Meta diária",
-            periodo: "Hoje",
-            icone: "☀️"
+            periodo: "Hoje"
         },
         {
             chave: "semanal",
             titulo: "Meta semanal",
-            periodo: "Segunda a domingo",
-            icone: "📅"
+            periodo: "Segunda a domingo"
         },
         {
             chave: "mensal",
             titulo: "Meta mensal",
-            periodo: "Primeiro ao último dia do mês",
-            icone: "🗓️"
+            periodo: "Primeiro ao último dia do mês"
         }
     ];
 
@@ -1378,7 +1351,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="painel">
 
             <h2>
-                🎯 Metas
+                Metas
             </h2>
 
             <p>
@@ -1431,7 +1404,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             >
 
                                 <span>
-                                    ${tipo.icone}
+                                    
                                 </span>
 
                                 <strong>
@@ -1447,63 +1420,39 @@ document.addEventListener("DOMContentLoaded", function () {
                                         ? `
 
                                             <p style="margin-top:12px;">
-                                                🎯
-                                                <strong>
+                                                Meta: <strong>
                                                     R$ ${formatarMoeda(valorMeta)}
                                                 </strong>
                                             </p>
 
                                             <p>
-                                                💰 Realizado:
+                                                Realizado:
                                                 <strong>
                                                     R$ ${formatarMoeda(realizado.total)}
                                                 </strong>
                                             </p>
 
                                             <p>
-                                                📊
-                                                <strong>
+                                                Progresso: <strong>
                                                     ${percentual.toFixed(1)}%
                                                 </strong>
                                             </p>
 
                                             <p>
-                                                ⏳ Falta:
+                                                Falta:
                                                 <strong>
                                                     R$ ${formatarMoeda(restante)}
                                                 </strong>
                                             </p>
 
                                             <p>
-                                                ✂️
-                                                <strong>
+                                                Serviços: <strong>
                                                     ${realizado.quantidade}
                                                 </strong>
                                                 serviços
                                             </p>
 
-                                            <div
-                                                style="
-                                                    width:100%;
-                                                    height:10px;
-                                                    background:#e5e5e5;
-                                                    border-radius:10px;
-                                                    overflow:hidden;
-                                                    margin-top:12px;
-                                                "
-                                            >
-
-                                                <div
-                                                    style="
-                                                        width:${Math.min(percentual, 100)}%;
-                                                        height:100%;
-                                                        background:#0077be;
-                                                        border-radius:10px;
-                                                    "
-                                                >
-                                                </div>
-
-                                            </div>
+                                            <div class="meta-progresso"><div class="meta-progresso-barra" style="width:${Math.min(percentual, 100)}%;"></div></div>
 
                                             ${
                                                 percentual >= 100
@@ -1514,7 +1463,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                                                 font-weight:bold;
                                                             "
                                                         >
-                                                            🎉 Meta atingida!
+                                                            Meta atingida!
                                                         </p>
                                                     `
                                                     : ""
@@ -1552,7 +1501,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                                 id="definir-${tipo.chave}"
                                                 style="margin-top:10px;"
                                             >
-                                                🎯 Definir meta
+                                                Definir meta
                                             </button>
 
                                         `
@@ -1572,16 +1521,12 @@ document.addEventListener("DOMContentLoaded", function () {
         >
 
             <h3>
-                💰 Visão geral financeira
+                Visão geral financeira
             </h3>
 
             <div class="cards">
 
                 <div class="card">
-
-                    <span>
-                        ☀️
-                    </span>
 
                     <strong>
                         Hoje
@@ -1603,10 +1548,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="card">
 
-                    <span>
-                        📅
-                    </span>
-
                     <strong>
                         Esta semana
                     </strong>
@@ -1626,10 +1567,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 <div class="card">
-
-                    <span>
-                        🗓️
-                    </span>
 
                     <strong>
                         Este mês
@@ -1663,7 +1600,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         >
 
                             <h3>
-                                👨‍🦱 Metas dos barbeiros
+                                Metas dos barbeiros
                             </h3>
 
                             <p>
@@ -1830,9 +1767,16 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        /*
+         * Barbeiros e Financeiro não ficam mais no menu inferior.
+         * Quando a tela pedir uma aba que não existe, marca a Home.
+         */
         const botao =
             document.getElementById(
                 id
+            ) ||
+            document.getElementById(
+                "menuHome"
             );
 
         if (botao) {
@@ -1853,11 +1797,16 @@ function mostrarHome() {
         "menuHome"
     );
 
+    /* Ícones de traço fino (herdam a cor do texto) */
+    const ICONES = {
+        agenda: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>`,
+        pessoa: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3.2"/><path d="M6 20c0-3.6 2.7-6 6-6s6 2.4 6 6z"/></svg>`,
+        sino: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>`
+    };
+
     /*
-     * A Home deve existir somente dentro do #app.
-     * O index.html antigo possui uma faixa/banner fora do #app,
-     * e algumas versões também possuem um dashboard estático.
-     * Removemos somente esses elementos para impedir duplicação.
+     * A Home existe somente dentro do #app.
+     * Remove restos antigos fora do #app, se houver.
      */
     document
         .querySelectorAll(
@@ -1873,75 +1822,103 @@ function mostrarHome() {
     const sessao =
         obterSessao();
 
-    const usuario =
-        sessao.tipo === "barbeiro"
-            ? sessao.nome
-            : "Dono";
+    const ehDono =
+        sessao.tipo === "dono";
 
-const clientesDashboard =
-    lerLocalStorage(
-        "clientes",
-        []
-    );
-    const servicosDashboard =
-    lerLocalStorage(
-        "servicos",
-        []
-    );
+    const filtro =
+        getFiltroBarbeiro();
 
-const ultimoServicoDashboard =
-    servicosDashboard.length > 0
-        ? servicosDashboard[servicosDashboard.length - 1]
-        : null;
-    const realizadoDia =
-        obterRealizadoPeriodo(
-            usuario,
-            "diaria"
+    const todosServicos =
+        lerLocalStorage(
+            "servicos",
+            []
         );
 
-    const realizadoSemana =
-        obterRealizadoPeriodo(
-            usuario,
-            "semanal"
+    const servicosVisiveis =
+        filtro
+            ? todosServicos.filter(
+                function (servico) {
+                    return servico.barbeiro === filtro;
+                }
+            )
+            : todosServicos;
+
+    const barbeiros =
+        lerLocalStorage(
+            "barbeiros",
+            []
         );
 
-    const realizadoMes =
-        obterRealizadoPeriodo(
-            usuario,
-            "mensal"
+
+    /* Atalhos: Barbeiros só aparece para o dono */
+
+    const atalhos = [
+        { id: "homeAgenda", icone: ICONES.agenda, nome: "Agenda" }
+    ];
+
+    if (ehDono) {
+        atalhos.push(
+            { id: "homeBarbeiros", icone: ICONES.pessoa, nome: "Barbeiros" }
         );
-        const comissaoMes =
-    realizadoMes.total * 0.50;
+    }
 
-const restanteMes =
-    realizadoMes.total - comissaoMes;
-
-const metaDiaria =
-    obterMetaUsuario(
-        "diaria",
-        usuario
+    atalhos.push(
+        { id: "homeFinanceiro", icone: '<span class="icone-texto">R$</span>', nome: "Financeiro" }
     );
 
-const metaSemanal =
-    obterMetaUsuario(
-        "semanal",
-        usuario
-    );
+    const htmlAtalhos =
+        atalhos
+            .map(
+                function (atalho) {
 
-const metaMensal =
-    obterMetaUsuario(
-        "mensal",
-        usuario
-    );
-    /*
-     * DASHBOARD PRINCIPAL
-     * Inspirado na organização da Home do APK Android:
-     * marca, banner, visão geral e atalhos.
-     */
+                    return `
+                        <button
+                            class="card-dashboard"
+                            id="${atalho.id}"
+                            type="button"
+                        >
+                            <span class="icone-card">${atalho.icone}</span>
+                            <strong>${atalho.nome}</strong>
+                        </button>
+                    `;
+                }
+            )
+            .join("");
+
+
+    const htmlProfissionais =
+        barbeiros.length > 0
+            ? barbeiros
+                .map(
+                    function (barbeiro) {
+
+                        const nome =
+                            String(barbeiro.nome || "").trim();
+
+                        const inicial =
+                            nome
+                                ? nome.charAt(0).toUpperCase()
+                                : "?";
+
+                        return `
+                            <div class="profissional">
+                                <div class="avatar">${escaparHTML(inicial)}</div>
+                                <strong>${escaparHTML(nome)}</strong>
+                            </div>
+                        `;
+                    }
+                )
+                .join("")
+            : `
+                <p class="vazio">
+                    Nenhum profissional cadastrado.
+                </p>
+            `;
+
+
     app.innerHTML = `
 
         <div class="dashboard-home">
-
 
             <!-- TOPO -->
 
@@ -1950,47 +1927,35 @@ const metaMensal =
                 <div class="marca-dashboard">
 
                     <div class="logo-dashboard">
-                        💈
+                        M
                     </div>
 
                     <div class="texto-marca">
-
-                        <h1>
-                            MARTINS
-                        </h1>
-
-                        <p>
-                            BARBEARIA
-                        </p>
-
+                        <h1>MARTINS</h1>
+                        <p>BARBEARIA</p>
                     </div>
 
                 </div>
-
 
                 <button
                     id="btnNotificacoes"
                     class="botao-notificacao"
                     title="Notificações"
                     type="button"
+                    aria-label="Notificações"
                 >
-                    🔔
+                    ${ICONES.sino}
                 </button>
 
             </div>
 
-
-            <!-- FAIXA DA MARCA -->
-
             <div class="faixa-marca-dashboard">
-
                 <span></span>
                 <span></span>
-
             </div>
 
 
-            <!-- BANNER -->
+            <!-- BOAS-VINDAS -->
 
             <section class="banner-dashboard">
 
@@ -2006,532 +1971,64 @@ const metaMensal =
                     Seu estilo começa aqui.
                 </p>
 
+                <button
+                    class="botao-principal"
+                    id="homeNovoServico"
+                    type="button"
+                >
+                    Agendar / Cadastrar serviço
+                </button>
+
+                <div class="faixa-marca-dashboard">
+                    <span></span>
+                    <span></span>
+                </div>
+
             </section>
 
 
-            <!-- PAINEL -->
+            <!-- ATALHOS -->
 
-            <section class="painel-dashboard">
+            <div
+                class="cards-dashboard"
+                style="grid-template-columns: repeat(${atalhos.length}, minmax(0, 1fr));"
+            >
+                ${htmlAtalhos}
+            </div>
 
-                <h2>
-                    Olá, ${escaparHTML(usuario)} 👋
-                </h2>
-
-                <p class="subtitulo-dashboard">
-                    Acompanhe sua barbearia pelo painel.
-                </p>
-
-
-                <!-- ATALHOS -->
-
-                <div class="cards-dashboard">
-
-
-                    <button
-                        class="card-dashboard"
-                        id="homeServicos"
-                        type="button"
-                    >
-
-                        <span class="icone-card">
-                            ✂️
-                        </span>
-
-                        <strong>
-                            Serviços
-                        </strong>
-
-                        <small>
-                            Registrar e consultar atendimentos
-                        </small>
-
-                    </button>
+            <button
+                class="botao-principal"
+                id="homeMetas"
+                type="button"
+            >
+                Dashboard de metas
+            </button>
 
 
-                    ${
-                        sessao.tipo === "dono"
-                            ? `
-                                <button
-                                    class="card-dashboard"
-                                    id="homeBarbeiros"
-                                    type="button"
-                                >
+            <!-- SEUS SERVIÇOS -->
 
-                                    <span class="icone-card">
-                                        💈
-                                    </span>
+            <h3>Seus serviços</h3>
 
-                                    <strong>
-                                        Barbeiros
-                                    </strong>
+            <div class="bloco-info">
 
-                                    <small>
-                                        Gerenciar profissionais
-                                    </small>
-
-                                </button>
-                            `
-                            : ""
-                    }
-
-
-                    <button
-                        class="card-dashboard"
-                        id="homeFinanceiro"
-                        type="button"
-                    >
-
-                        <span class="icone-card">
-                            💰
-                        </span>
-
-                        <strong>
-                            Financeiro
-                        </strong>
-
-                        <small>
-                            Ver faturamento e comissão
-                        </small>
-
-                    </button>
-
-
-                    <button
-                        class="card-dashboard"
-                        id="homeClientes"
-                        type="button"
-                    >
-
-                        <span class="icone-card">
-                            👤
-                        </span>
-
-                        <strong>
-                            Clientes
-                        </strong>
-
-                        <small>
-                            Cadastrar e pesquisar
-                        </small>
-
-                    </button>
-
-
-                    <button
-                        class="card-dashboard"
-                        id="homeMetas"
-                        type="button"
-                    >
-
-                        <span class="icone-card">
-                            🎯
-                        </span>
-
-                        <strong>
-                            Metas
-                        </strong>
-
-                        <small>
-                            Diária, semanal e mensal
-                        </small>
-
-                    </button>
-
-
-                </div>
-
-
-                <!-- VISÃO GERAL -->
-
-                <div
-                    class="financeiro-card"
-                    style="margin-top:25px;"
-                >
-
-                    <h3>
-                        📊 Visão geral
-                    </h3>
-
-                    <p>
-                        ☀️ Hoje:
-                        <strong>
-                            R$ ${formatarMoeda(
-                                realizadoDia.total
-                            )}
-                        </strong>
-                        — ${realizadoDia.quantidade}
-                        serviços
-                    </p>
-<p>
-    👤 Comissão hoje:
-    <strong>
-        R$ ${formatarMoeda(
-            realizadoDia.total * 0.50
-        )}
-    </strong>
-</p>
-
-<p>
-    💰 Restante hoje:
-    <strong>
-        R$ ${formatarMoeda(
-            realizadoDia.total * 0.50
-        )}
-    </strong>
-</p>
-                    <p>
-                        📅 Semana:
-                        <strong>
-                            R$ ${formatarMoeda(
-                                realizadoSemana.total
-                            )}
-                        </strong>
-                        — ${realizadoSemana.quantidade}
-                        serviços
-                    </p>
-
-                    <p>
-                        🗓️ Mês:
-                        <strong>
-                            R$ ${formatarMoeda(
-                                realizadoMes.total
-                            )}
-                        </strong>
-                        — ${realizadoMes.quantidade}
-                        serviços
-                    </p>
-
-                </div>
-                <!-- ÚLTIMO ATENDIMENTO -->
-
-<div
-    class="financeiro-card"
-    style="margin-top:15px;"
->
-    <h3>
-        ✂️ Último atendimento
-    </h3>
-
-    ${
-        ultimoServicoDashboard
-            ? `
-                <p>
-                    👤 Cliente:
-                    <strong>
-                        ${escaparHTML(
-                            ultimoServicoDashboard.cliente || "Não informado"
-                        )}
-                    </strong>
-                </p>
+                <strong>
+                    ${servicosVisiveis.length} serviço(s) cadastrado(s)
+                </strong>
 
                 <p>
-                    ✂️ Serviço:
-                    <strong>
-                        ${escaparHTML(
-                            ultimoServicoDashboard.servico || "Não informado"
-                        )}
-                    </strong>
+                    Toque em Serviços para visualizar, pesquisar ou excluir.
                 </p>
 
-                <p>
-                    💰 Valor:
-                    <strong>
-                        R$ ${formatarMoeda(
-                            Number(ultimoServicoDashboard.valor) || 0
-                        )}
-                    </strong>
-                </p>
-            `
-            : `
-                <p>
-                    Nenhum atendimento registrado ainda.
-                </p>
-            `
-    }
-
-</div>
-<!-- RESUMO DE CLIENTES -->
-
-<div
-    class="financeiro-card"
-    style="margin-top:15px; cursor:pointer;"
-    onclick="mostrarClientes()"
->
-    <h3>
-        👥 Clientes
-    </h3>
-
-    <p>
-        👤 Clientes cadastrados:
-        <strong>
-            ${clientesDashboard.length}
-        </strong>
-    </p>
-
-</div>
-
-<!-- RESUMO FINANCEIRO -->
-
-<div
-    class="financeiro-card"
-    style="margin-top:15px;"
->
-
-    <h3>
-        💰 Resumo financeiro do mês
-    </h3>
-
-    <p>
-        💵 Faturamento:
-        <strong>
-            R$ ${formatarMoeda(
-                realizadoMes.total
-            )}
-        </strong>
-    </p>
-
-    <p>
-        👤 Comissão (50%):
-        <strong>
-            R$ ${formatarMoeda(
-                comissaoMes
-            )}
-        </strong>
-    </p>
-
-    <p>
-        💰 Restante:
-        <strong>
-            R$ ${formatarMoeda(
-                restanteMes
-            )}
-        </strong>
-    </p>
-
-    <p>
-        ✂️ Serviços:
-        <strong>
-            ${realizadoMes.quantidade}
-        </strong>
-    </p>
-
-</div>
-                <!-- DASHBOARD DE METAS -->
-
-                <div
-                    class="financeiro-card"
-                    style="margin-top:15px;"
-                >
-
-                    <h3>
-                        🎯 Metas
-                    </h3>
-
-                    <p>
-                        Acompanhe seu desempenho diário,
-                        semanal e mensal.
-                    </p>
-<div
-    style="
-        margin-top:15px;
-        padding:12px;
-        background:#f1f1f1;
-        border-radius:10px;
-    "
->
-
-    <strong>
-        🎯 Progresso das metas
-    </strong>
-
-    <p>
-    ☀️ Hoje:
-    <strong>
-        R$ ${formatarMoeda(realizadoDia.total)}
-    </strong>
-
-    ${
-        metaDiaria
-            ? `
-                <br>
-
-                <small>
-                    🎯 Meta:
-                    R$ ${formatarMoeda(
-                        Number(metaDiaria.valor)
-                    )}
-                </small>
-
-                <div
-                    style="
-                        width:100%;
-                        height:8px;
-                        background:#ddd;
-                        border-radius:10px;
-                        overflow:hidden;
-                        margin-top:6px;
-                    "
-                >
-                    <div
-                        style="
-                            width:${Math.min(
-                                (
-                                    realizadoDia.total /
-                                    Number(metaDiaria.valor)
-                                ) * 100,
-                                100
-                            )}%;
-                            height:100%;
-                            background:#0077be;
-                        "
-                    ></div>
-                </div>
-            `
-            : ""
-    }
-</p>
-
-   <p>
-    📅 Semana:
-    <strong>
-        R$ ${formatarMoeda(realizadoSemana.total)}
-    </strong>
-
-    ${
-        metaSemanal
-            ? `
-                <br>
-
-                <small>
-                    🎯 Meta:
-                    R$ ${formatarMoeda(
-                        Number(metaSemanal.valor)
-                    )}
-                </small>
-
-                <div
-                    style="
-                        width:100%;
-                        height:8px;
-                        background:#ddd;
-                        border-radius:10px;
-                        overflow:hidden;
-                        margin-top:6px;
-                    "
-                >
-                    <div
-                        style="
-                            width:${Math.min(
-                                (
-                                    realizadoSemana.total /
-                                    Number(metaSemanal.valor)
-                                ) * 100,
-                                100
-                            )}%;
-                            height:100%;
-                            background:#0077be;
-                        "
-                    ></div>
-                </div>
-            `
-            : ""
-    }
-</p>
-
-    <p>
-    🗓️ Mês:
-    <strong>
-        R$ ${formatarMoeda(realizadoMes.total)}
-    </strong>
-
-    ${
-        metaMensal
-            ? `
-                <br>
-
-                <small>
-                    🎯 Meta:
-                    R$ ${formatarMoeda(
-                        Number(metaMensal.valor)
-                    )}
-                </small>
-<p style="margin:6px 0;">
-    📊
-    <strong>
-        ${(
-            (
-                realizadoMes.total /
-                Number(metaMensal.valor)
-            ) * 100
-        ).toFixed(1)}%
-    </strong>
-    da meta
-</p>
-                <div
-                    style="
-                        width:100%;
-                        height:8px;
-                        background:#ddd;
-                        border-radius:10px;
-                        overflow:hidden;
-                        margin-top:6px;
-                    "
-                >
-                    <div
-                        style="
-                            width:${Math.min(
-                                (
-                                    realizadoMes.total /
-                                    Number(metaMensal.valor)
-                                ) * 100,
-                                100
-                            )}%;
-                            height:100%;
-                            background:#0077be;
-                        "
-                    ></div>
-                </div>
-                                ${
-                    realizadoDia.total >=
-                    Number(metaDiaria.valor)
-                        ? `
-                            <p
-                                style="
-                                    margin-top:8px;
-                                    font-weight:bold;
-                                "
-                            >
-                                🎉 Meta diária atingida!
-                            </p>
-                        `
-                        : ""
-                }
-            `
-            : ""
-    }
-</p>
-
-    <p style="margin-top:10px;">
-        ✂️ Total de serviços no mês:
-        <strong>
-            ${realizadoMes.quantidade}
-        </strong>
-    </p>
-
-</div>
-                    <button
-                        class="botao-principal"
-                        id="homeAbrirMetas"
-                        type="button"
-                        style="margin-top:10px;"
-                    >
-                        📊 Abrir metas
-                    </button>
-
-                </div>
+            </div>
 
 
-            </section>
+            <!-- PROFISSIONAIS -->
+
+            <h3>Nossos profissionais</h3>
+
+            <div class="profissionais">
+                ${htmlProfissionais}
+            </div>
 
         </div>
 
@@ -2540,135 +2037,49 @@ const metaMensal =
 
     /* NOTIFICAÇÕES */
 
-    const btnNotificacoes =
-        document.getElementById(
-            "btnNotificacoes"
-        );
-
-    if (btnNotificacoes) {
-
-        btnNotificacoes.onclick =
-            function () {
-
-                alert(
-                    "Nenhuma nova notificação."
-                );
-
-            };
-
-    }
+    document.getElementById("btnNotificacoes").onclick =
+        function () {
+            alert("Nenhuma nova notificação.");
+        };
 
 
-    /* SERVIÇOS */
+    /* BOTÃO DO BANNER */
 
-    const homeServicos =
-        document.getElementById(
-            "homeServicos"
-        );
-
-    if (homeServicos) {
-
-        homeServicos.onclick =
-            function () {
-
-                mostrarTelaServicos();
-
-            };
-
-    }
+    document.getElementById("homeNovoServico").onclick =
+        function () {
+            abrirCadastroServico();
+        };
 
 
-    /* BARBEIROS */
+    /* ATALHOS */
+
+    document.getElementById("homeAgenda").onclick =
+        function () {
+            mostrarServicosDoDia();
+        };
 
     const homeBarbeiros =
-        document.getElementById(
-            "homeBarbeiros"
-        );
+        document.getElementById("homeBarbeiros");
 
     if (homeBarbeiros) {
-
         homeBarbeiros.onclick =
             function () {
-
                 mostrarBarbeiros();
-
             };
-
     }
 
-
-    /* FINANCEIRO */
-
-    const homeFinanceiro =
-        document.getElementById(
-            "homeFinanceiro"
-        );
-
-    if (homeFinanceiro) {
-
-        homeFinanceiro.onclick =
-            function () {
-
-                mostrarFinanceiro();
-
-            };
-
-    }
-
-
-    /* CLIENTES */
-
-    const homeClientes =
-        document.getElementById(
-            "homeClientes"
-        );
-
-    if (homeClientes) {
-
-        homeClientes.onclick =
-            function () {
-
-                mostrarClientes();
-
-            };
-
-    }
+    document.getElementById("homeFinanceiro").onclick =
+        function () {
+            mostrarFinanceiro();
+        };
 
 
     /* METAS */
 
-    const homeMetas =
-        document.getElementById(
-            "homeMetas"
-        );
-
-    if (homeMetas) {
-
-        homeMetas.onclick =
-            function () {
-
-                mostrarMetas();
-
-            };
-
-    }
-
-
-    const homeAbrirMetas =
-        document.getElementById(
-            "homeAbrirMetas"
-        );
-
-    if (homeAbrirMetas) {
-
-        homeAbrirMetas.onclick =
-            function () {
-
-                mostrarMetas();
-
-            };
-
-    }
+    document.getElementById("homeMetas").onclick =
+        function () {
+            mostrarMetas();
+        };
 
 }
 
@@ -2689,7 +2100,7 @@ const metaMensal =
             <div class="painel">
 
                 <h2>
-                    ✂️ Serviços
+                    Serviços
                 </h2>
 
                 <p>
@@ -2702,10 +2113,6 @@ const metaMensal =
                         class="card"
                         id="btnPesquisarClienteServico"
                     >
-
-                        <span>
-                            🔎
-                        </span>
 
                         <strong>
                             Pesquisar cliente
@@ -2723,10 +2130,6 @@ const metaMensal =
                         id="btnServicosDoDia"
                     >
 
-                        <span>
-                            📅
-                        </span>
-
                         <strong>
                             Serviços do dia
                         </strong>
@@ -2742,10 +2145,6 @@ const metaMensal =
                         class="card"
                         id="btnNovoServico"
                     >
-
-                        <span>
-                            ➕
-                        </span>
 
                         <strong>
                             Registrar serviço
@@ -2807,7 +2206,7 @@ const metaMensal =
             <div class="painel">
 
                 <h2>
-                    🔎 Pesquisar cliente
+                    Pesquisar cliente
                 </h2>
 
                 <input
@@ -3177,7 +2576,7 @@ function mostrarServicosDoDia(
         <div class="painel">
 
             <h2>
-                📅 Serviços do dia
+                Serviços do dia
             </h2>
 
             <label>
@@ -3277,25 +2676,25 @@ function mostrarServicosDoDia(
         <div class="financeiro-card">
 
             <h3>
-                📊 Resumo do dia
+                Resumo do dia
             </h3>
 
             <p>
-                ✂️ Serviços:
+                Serviços:
                 <strong>
                     ${servicosDoDia.length}
                 </strong>
             </p>
 
             <p>
-                💰 Faturamento:
+                Faturamento:
                 <strong>
                     R$ ${formatarMoeda(total)}
                 </strong>
             </p>
 
             <p>
-                💼 Comissão:
+                Comissão:
                 <strong>
                     R$ ${formatarMoeda(comissao)}
                 </strong>
@@ -3460,7 +2859,7 @@ function alterarData(
                         <div class="registro">
 
                             <strong>
-                                👤 Cliente:
+                                Cliente:
                             </strong>
 
                             ${escaparHTML(
@@ -3470,7 +2869,7 @@ function alterarData(
                             <br>
 
                             <strong>
-                                💈 Barbeiro:
+                                Barbeiro:
                             </strong>
 
                             ${escaparHTML(
@@ -3480,7 +2879,7 @@ function alterarData(
                             <br>
 
                             <strong>
-                                ✂️ Serviço:
+                                Serviço:
                             </strong>
 
                             ${escaparHTML(
@@ -3490,7 +2889,7 @@ function alterarData(
                             <br>
 
                             <strong>
-                                💰 Valor:
+                                Valor:
                             </strong>
 
                             R$ ${formatarMoeda(
@@ -3500,7 +2899,7 @@ function alterarData(
                             <br>
 
                             <strong>
-                                💳 Pagamento:
+                                Pagamento:
                             </strong>
 
                             ${escaparHTML(
@@ -3510,7 +2909,7 @@ function alterarData(
                             <br>
 
                             <strong>
-                                📅 Data:
+                                Data:
                             </strong>
 
                             ${escaparHTML(
@@ -3526,7 +2925,7 @@ function alterarData(
                             <br>
 
                             <strong>
-                                💼 Comissão:
+                                Comissão:
                             </strong>
 
                             R$ ${formatarMoeda(
@@ -3540,7 +2939,7 @@ function alterarData(
                                 data-id="${servico.id || ""}"
                             >
 
-                                🗑️ Excluir
+                                Excluir
 
                             </button>
 
@@ -3771,7 +3170,7 @@ window.excluirCliente =
             <div class="painel">
 
                 <h2>
-                    ➕ Registrar serviço
+                    Registrar serviço
                 </h2>
 
 
@@ -3856,7 +3255,7 @@ window.excluirCliente =
                     </option>
 
                     <option value="multiplos">
-                        ☑️ Selecionar vários serviços
+                        Selecionar vários serviços
                     </option>
 
                 </select>
@@ -3907,7 +3306,7 @@ window.excluirCliente =
                     readonly
                 >
 <label>
-    📅 Data do atendimento
+    Data do atendimento
 </label>
 
 <input
@@ -3949,7 +3348,7 @@ window.excluirCliente =
                     id="salvarServico"
                 >
 
-                    💾 Salvar Serviço
+                    Salvar Serviço
 
                 </button>
 
@@ -4367,7 +3766,7 @@ if (campoDataServico) {
                                         data-indice="${indice}"
                                     >
 
-                                        🗑️
+                                        
 
                                     </button>
 
@@ -4615,7 +4014,7 @@ const hora =
     // =====================================================
 function mostrarClientes() {
 
-    ativarMenu("");
+    ativarMenu("menuClientes");
 
     let clientes =
         lerLocalStorage(
@@ -4629,7 +4028,7 @@ function mostrarClientes() {
         <div class="painel">
 
             <h2>
-                👥 Clientes
+                Clientes
             </h2>
 
             <p>
@@ -4673,7 +4072,7 @@ function mostrarClientes() {
     class="botao-principal"
     id="btnWhatsAppCliente"
 >
-    📱 Testar WhatsApp
+    Testar WhatsApp
 </button>
 
             <button
@@ -4685,11 +4084,11 @@ function mostrarClientes() {
 
 
             <h3>
-                🔎 Pesquisar clientes
+                Pesquisar clientes
             </h3>
 <div class="painel">
     <h3>
-        🔔 Retornos de clientes
+        Retornos de clientes
     </h3>
 
     <p>
@@ -4706,7 +4105,7 @@ function mostrarClientes() {
 <div class="painel">
 
     <h3>
-        📊 Serviços realizados
+        Serviços realizados
     </h3>
 
     <div class="botoes-periodo">
@@ -4715,21 +4114,21 @@ function mostrarClientes() {
             class="botao-secundario"
             id="btnServicosDia"
         >
-            📅 Dia
+            Dia
         </button>
 
         <button
             class="botao-secundario"
             id="btnServicosSemana"
         >
-            📆 Semana
+            Semana
         </button>
 
         <button
             class="botao-secundario"
             id="btnServicosMes"
         >
-            🗓️ Mês
+            Mês
         </button>
 
     </div>
@@ -4840,14 +4239,14 @@ function mostrarClientes() {
                             >
 
                                 <strong>
-                                    👤 ${escaparHTML(
+                                    ${escaparHTML(
                                         item.cliente.nome
                                     )}
                                 </strong>
 
                                 <br>
 
-                                📱 ${
+                                Telefone: ${
                                     escaparHTML(
                                         item.cliente.telefone ||
                                         "Sem telefone"
@@ -4856,7 +4255,7 @@ function mostrarClientes() {
 
                                 <br>
 
-                                📝 ${
+                                Observações: ${
                                     escaparHTML(
                                         item.cliente.observacao ||
                                         "Sem observações"
@@ -4866,7 +4265,7 @@ function mostrarClientes() {
                                 <br>
 
                                 <span>
-                                    👉 Clique para ver histórico
+                                    Clique para ver histórico
                                 </span>
 
                                 <br><br>
@@ -4875,7 +4274,7 @@ function mostrarClientes() {
                                     class="botao-excluir"
                                     data-indice="${item.indice}"
                                 >
-                                    🗑️ Excluir
+                                    Excluir
                                 </button>
 
                             </div>
@@ -5344,7 +4743,7 @@ function mostrarServicosPeriodoClientes(
 
 
     let titulo =
-        "📅 Serviços de hoje";
+        "Serviços de hoje";
 
     if (
         periodoSelecionado ===
@@ -5352,7 +4751,7 @@ function mostrarServicosPeriodoClientes(
     ) {
 
         titulo =
-            "📆 Serviços desta semana";
+            "Serviços desta semana";
 
     }
 
@@ -5362,7 +4761,7 @@ function mostrarServicosPeriodoClientes(
     ) {
 
         titulo =
-            "🗓️ Serviços deste mês";
+            "Serviços deste mês";
 
     }
 
@@ -5385,7 +4784,7 @@ function mostrarServicosPeriodoClientes(
         <div class="financeiro-card">
 
             <strong>
-                💰 Total
+                Total
             </strong>
 
             <span>
@@ -5397,7 +4796,7 @@ function mostrarServicosPeriodoClientes(
         <input
             type="text"
             id="pesquisaServicoPeriodo"
-            placeholder="🔎 Pesquisar cliente..."
+            placeholder="Pesquisar cliente..."
         >
 
         <div
@@ -5470,7 +4869,7 @@ function mostrarServicosPeriodoClientes(
                             <div class="registro">
 
                                 <strong>
-                                    👤 ${
+                                    ${
                                         escaparHTML(
                                             servico.cliente
                                         )
@@ -5479,7 +4878,7 @@ function mostrarServicosPeriodoClientes(
 
                                 <br>
 
-                                ✂️ ${
+                                Serviço: ${
                                     escaparHTML(
                                         servico.servico
                                     )
@@ -5487,7 +4886,7 @@ function mostrarServicosPeriodoClientes(
 
                                 <br>
 
-                                👨‍🦱 Barbeiro:
+                                Barbeiro:
                                 ${
                                     escaparHTML(
                                         servico.barbeiro ||
@@ -5497,7 +4896,7 @@ function mostrarServicosPeriodoClientes(
 
                                 <br>
 
-                                📅 ${
+                                Data: ${
                                     escaparHTML(
                                         servico.data ||
                                         "Sem data"
@@ -5506,7 +4905,7 @@ function mostrarServicosPeriodoClientes(
 
                                 <br>
 
-                                🕐 ${
+                                Hora: ${
                                     escaparHTML(
                                         servico.hora ||
                                         "Sem horário"
@@ -5515,7 +4914,7 @@ function mostrarServicosPeriodoClientes(
 
                                 <br>
 
-                                💳 ${
+                                Pagamento: ${
                                     escaparHTML(
                                         servico.pagamento ||
                                         "Não informado"
@@ -5524,7 +4923,7 @@ function mostrarServicosPeriodoClientes(
 
                                 <br>
 
-                                💰
+                                Valor:
                                 <strong>
                                     R$ ${formatarMoeda(
                                         servico.valor
@@ -5742,7 +5141,7 @@ function mostrarRetornosClientes() {
             ) {
 
                 status =
-                    "🟢 Retorno hoje";
+                    "Retorno hoje";
 
                 classe =
                     "retorno-hoje";
@@ -5752,7 +5151,7 @@ function mostrarRetornosClientes() {
             ) {
 
                 status =
-                    "🔴 Retorno atrasado";
+                    "Retorno atrasado";
 
                 classe =
                     "retorno-atrasado";
@@ -5760,7 +5159,7 @@ function mostrarRetornosClientes() {
             } else {
 
                 status =
-                    "🟡 Próximo retorno";
+                    "Próximo retorno";
 
                 classe =
                     "retorno-proximo";
@@ -5829,7 +5228,7 @@ function mostrarRetornosClientes() {
                         >
 
                             <strong>
-                                👤 ${escaparHTML(
+                                ${escaparHTML(
                                     item.cliente.nome
                                 )}
                             </strong>
@@ -5840,7 +5239,7 @@ function mostrarRetornosClientes() {
 
                             <br>
 
-                            📅 Último atendimento:
+                            Último atendimento:
                             ${escaparHTML(
                                 item.ultimoServico.data ||
                                 "Sem data"
@@ -5859,7 +5258,7 @@ function mostrarRetornosClientes() {
 
                             <br>
 
-                            🔔 Retorno:
+                            Retorno:
                             <strong>
                                 ${formatarDataRetorno(
                                     item.dataRetorno
@@ -5878,12 +5277,12 @@ function mostrarRetornosClientes() {
                                             class="botao-principal"
                                             style="display:inline-block;text-decoration:none;text-align:center;"
                                         >
-                                            💬 WhatsApp
+                                            WhatsApp
                                         </a>
                                       `
                                     : `
                                         <span>
-                                            📵 Sem WhatsApp cadastrado
+                                            Sem WhatsApp cadastrado
                                         </span>
                                       `
                             }
@@ -5918,7 +5317,7 @@ function mostrarRetornosClientes() {
             <div class="painel">
 
                 <h2>
-                    💈 Barbeiros
+                    Barbeiros
                 </h2>
 
 
@@ -5927,7 +5326,7 @@ function mostrarRetornosClientes() {
                     id="novoBarbeiro"
                 >
 
-                    ➕ Adicionar barbeiro
+                    Adicionar barbeiro
 
                 </button>
 
@@ -5964,7 +5363,7 @@ function mostrarRetornosClientes() {
                         id="salvarNovoBarbeiro"
                     >
 
-                        💾 Salvar
+                        Salvar
 
                     </button>
 
@@ -6020,7 +5419,7 @@ function mostrarRetornosClientes() {
                                 <div class="registro">
 
                                     <strong>
-                                        💈 ${escaparHTML(
+                                        ${escaparHTML(
                                             barbeiro.nome
                                         )}
                                     </strong>
@@ -6030,7 +5429,7 @@ function mostrarRetornosClientes() {
                                         data-indice="${indice}"
                                     >
 
-                                        🗑️ Excluir
+                                        Excluir
 
                                     </button>
 
@@ -6264,7 +5663,7 @@ function mostrarRetornosClientes() {
         <div class="painel">
 
             <h2>
-                💰 Financeiro
+                Financeiro
             </h2>
 
             <p>
@@ -6277,8 +5676,6 @@ function mostrarRetornosClientes() {
                     class="card"
                     id="financeiroHoje"
                 >
-                    <span>☀️</span>
-
                     <strong>
                         Hoje
                     </strong>
@@ -6293,8 +5690,6 @@ function mostrarRetornosClientes() {
                     class="card"
                     id="financeiroSemana"
                 >
-                    <span>📅</span>
-
                     <strong>
                         Esta semana
                     </strong>
@@ -6309,8 +5704,6 @@ function mostrarRetornosClientes() {
                     class="card"
                     id="financeiroMes"
                 >
-                    <span>🗓️</span>
-
                     <strong>
                         Este mês
                     </strong>
@@ -6325,8 +5718,6 @@ function mostrarRetornosClientes() {
                     class="card"
                     id="financeiroDia"
                 >
-                    <span>📆</span>
-
                     <strong>
                         Escolher um dia
                     </strong>
@@ -6341,8 +5732,6 @@ function mostrarRetornosClientes() {
                     class="card"
                     id="financeiroMesEscolher"
                 >
-                    <span>🗓️</span>
-
                     <strong>
                         Escolher um mês
                     </strong>
@@ -6760,10 +6149,6 @@ function mostrarFinanceiroPeriodo(
 
                 <div class="card">
 
-                    <span>
-                        💰
-                    </span>
-
                     <strong>
                         Faturamento
                     </strong>
@@ -6776,10 +6161,6 @@ function mostrarFinanceiroPeriodo(
 
 
                 <div class="card">
-
-                    <span>
-                        ✂️
-                    </span>
 
                     <strong>
                         Serviços
@@ -6794,10 +6175,6 @@ function mostrarFinanceiroPeriodo(
 
                 <div class="card">
 
-                    <span>
-                        👤
-                    </span>
-
                     <strong>
                         Comissão (50%)
                     </strong>
@@ -6810,10 +6187,6 @@ function mostrarFinanceiroPeriodo(
 
 
                 <div class="card">
-
-                    <span>
-                        💵
-                    </span>
 
                     <strong>
                         Restante
@@ -6829,7 +6202,7 @@ function mostrarFinanceiroPeriodo(
 
 
             <h3 style="margin-top:25px;">
-                💳 Formas de pagamento
+                Formas de pagamento
             </h3>
 
 
@@ -6837,7 +6210,7 @@ function mostrarFinanceiroPeriodo(
 
                 <div class="card">
 
-                    💵 Dinheiro
+                    Dinheiro
 
                     <strong>
                         R$ ${formatarMoeda(dinheiro)}
@@ -6848,7 +6221,7 @@ function mostrarFinanceiroPeriodo(
 
                 <div class="card">
 
-                    🔵 Pix
+                    Pix
 
                     <strong>
                         R$ ${formatarMoeda(pix)}
@@ -6859,7 +6232,7 @@ function mostrarFinanceiroPeriodo(
 
                 <div class="card">
 
-                    💳 Cartão
+                    Cartão
 
                     <strong>
                         R$ ${formatarMoeda(cartao)}
@@ -6870,7 +6243,7 @@ function mostrarFinanceiroPeriodo(
 
                 <div class="card">
 
-                    💰 Outro
+                    Outro
 
                     <strong>
                         R$ ${formatarMoeda(outro)}
@@ -7105,7 +6478,7 @@ function abrirEscolhaMesFinanceiro() {
             areaDono = `
 
                 <h3>
-                    🔑 Senha do administrador
+                    Senha do administrador
                 </h3>
 
 
@@ -7127,7 +6500,7 @@ function abrirEscolhaMesFinanceiro() {
 
 
                 <h3>
-                    👁️ Visualizar como barbeiro
+                    Visualizar como barbeiro
                 </h3>
 
 
@@ -7171,7 +6544,7 @@ function abrirEscolhaMesFinanceiro() {
             <div class="painel">
 
                 <h2>
-                    👤 ${escaparHTML(
+                    ${escaparHTML(
                         nomeExibido
                     )}
                 </h2>
@@ -7224,7 +6597,7 @@ function abrirEscolhaMesFinanceiro() {
                     id="salvarConta"
                 >
 
-                    💾 Salvar dados
+                    Salvar dados
 
                 </button>
 
@@ -7241,7 +6614,7 @@ function abrirEscolhaMesFinanceiro() {
                     "
                 >
 
-                    🚪 Sair
+                    Sair
 
                 </button>
 
