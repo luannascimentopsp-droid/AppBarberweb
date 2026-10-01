@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Martins Barbearia</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="telaLogin" class="tela-login">
+
+        <div class="login-caixa">
+
+            <h1>MARTINS BARBEARIA</h1>
+            <p class="login-subtitulo">Acesso ao sistema</p>
+
+            <label>Entrar como</label>
+            <select id="loginTipo">
+                <option value="barbeiro">Barbeiro</option>
+                <option value="dono">Dono</option>
+            </select>
+
+            <div id="loginCampoBarbeiro">
+                <label>Barbeiro</label>
+                <select id="loginBarbeiro"></select>
+            </div>
+
+            <label>Senha</label>
+            <input type="password" id="loginSenha" placeholder="Digite a senha">
+
+            <button class="botao-principal" id="btnEntrar">Entrar</button>
+
+            <p id="loginErro" class="login-erro"></p>
+
+        </div>
+
+    </div>
+
+    <div id="appPrincipal" style="display:none;">
+
+        <header class="topo">
+
+            <div>
+                <h1>MARTINS BARBEARIA</h1>
+                <p>BARBEARIA</p>
+            </div>
+
+            <div class="icone">💈</div>
+
+        </header>
+
+
+       <main>
+
+    <section class="dashboard-home">
+
+        <!-- TOPO DO DASHBOARD -->
+        <div class="dashboard-topo">
+
+            <div class="marca-dashboard">
+
+                <div class="logo-dashboard">
+                    💈
+                </div>
+
+                <div class="texto-marca">
+                    <h1>MARTINS</h1>
+                    <p>BARBEARIA</p>
+                </div>
+
+            </div>
+
+            <button
+                id="btnNotificacoes"
+                class="botao-notificacao"
+                title="Notificações"
+            >
+                🔔
+            </button>
+
+        </div>
+
+
+        <!-- FAIXA DA MARCA -->
+        <div class="faixa-marca-dashboard">
+
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- BANNER PRINCIPAL -->
+        <section class="banner-dashboard">
+
+            <span class="banner-pequeno">
+                BEM-VINDO À
+            </span>
+
+            <h2>
+              MARTINS BARBEARIA
+            </h2>
+
+            <p>
+                Seu estilo começa aqui.
+            </p>
+
+        </section>
+
+
+        <!-- PAINEL -->
+        <section class="painel-dashboard">
+
+            <h2>
+                Painel
+            </h2>
+
+            <p class="subtitulo-dashboard">
+                Acesso rápido às principais funções
+            </p>
+
+
+            <div class="cards-dashboard">
+
+                <button
+                    class="card-dashboard"
+                    id="btnServicos"
+                >
+                    <span class="icone-card">
+                        ✂️
+                    </span>
+
+                    <strong>
+                        Serviços
+                    </strong>
+
+                    <small>
+                        Registrar serviço
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="card-dashboard"
+                    id="btnBarbeiros"
+                >
+                    <span class="icone-card">
+                        💈
+                    </span>
+
+                    <strong>
+                        Barbeiros
+                    </strong>
+
+                    <small>
+                        Gerenciar profissionais
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="card-dashboard"
+                    id="btnFinanceiro"
+                >
+                    <span class="icone-card">
+                        💰
+                    </span>
+
+                    <strong>
+                        Financeiro
+                    </strong>
+
+                    <small>
+                        Ver movimentações
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="card-dashboard"
+                    id="btnClientes"
+                >
+                    <span class="icone-card">
+                        👤
+                    </span>
+
+                    <strong>
+                        Clientes
+                    </strong>
+
+                    <small>
+                        Cadastrar e pesquisar
+                    </small>
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <!-- ÁREA DAS OUTRAS TELAS -->
+    <section class="conteudo">
+
+        <div id="app"></div>
+
+    </section>
+
+</main>
+
+
+        <nav class="menu-inferior">
+
+            <button id="menuHome">
+                <span>🏠</span>
+                <small>Home</small>
+            </button>
+
+            <button id="menuServicos">
+                <span>✂️</span>
+                <small>Serviços</small>
+            </button>
+
+            <button id="menuBarbeiros">
+                <span>👨‍🦱</span>
+                <small>Barbeiros</small>
+            </button>
+
+            <button id="menuFinanceiro">
+                <span>💰</span>
+                <small>Financeiro</small>
+            </button>
+<button id="menuClientes">
+    <span>👥</span>
+    <small>Clientes</small>
+</button>
+            <button id="menuConta">
+                <span>👤</span>
+                <small>Conta</small>
+            </button>
+
+        </nav>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
