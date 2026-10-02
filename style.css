@@ -1,989 +1,388 @@
-/* =====================================================
-   MARTINS BARBEARIA WEB — STYLE.CSS
-   Tema claro (bege + off-white), vermelho como cor
-   principal e azul-marinho só em detalhes.
-   Sem !important: a ordem do arquivo decide quem vence.
-   ===================================================== */
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
-
-
-/* =====================================================
-   1. VARIÁVEIS
-   ===================================================== */
-
+/* Martins Barbearia | Preto, grafite e dourado */
 :root {
-
-    /* fundos */
-    --fundo-1: #f3f1ee;
-    --fundo-2: #e4e1dc;
-    --card: #f9f8f6;
-    --campo: #f1eeea;
-    --menu: #efede9;
-
-    /* textos */
-    --texto: #1c1c1c;
-    --texto-suave: #666666;
-
-    /* marca */
-    --vermelho: #b03a48;
-    --vermelho-escuro: #962f3b;
-    --azul: #4a5496;
-
-    /* apoio */
-    --linha: #e6e1db;
-    --verde: #2e8b57;
-    --amarelo: #c9a24a;
-
-    --raio-card: 22px;
-    --raio-campo: 12px;
-    --sombra: 0 2px 6px rgba(0, 0, 0, 0.15);
-    --sombra-leve: 0 1px 2px rgba(0, 0, 0, 0.06);
-}
-
-
-/* =====================================================
-   2. BASE
-   ===================================================== */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-    background: var(--fundo-2);
-}
-
-body {
-    min-height: 100vh;
-    padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px));
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    color: var(--texto);
-    background: linear-gradient(160deg, var(--fundo-1), var(--fundo-2)) fixed;
-    -webkit-font-smoothing: antialiased;
-}
-
-button,
-input,
-select,
-textarea {
-    font-family: inherit;
-    font-size: 15px;
-}
-
-button {
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
-::selection {
-    background: var(--vermelho);
-    color: #ffffff;
-}
-
-:focus-visible {
-    outline: 2px solid var(--azul);
-    outline-offset: 2px;
-}
-
-
-/* =====================================================
-   3. TIPOGRAFIA
-   ===================================================== */
-
-h1,
-h2 {
-    color: var(--texto);
-    font-weight: 700;
-}
-
-/* Título de seção pequeno, em vermelho (igual ao modelo) */
-h3 {
-    margin: 22px 0 10px;
-    color: var(--vermelho);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-p {
-    color: var(--texto-suave);
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-small {
-    color: var(--texto-suave);
-    font-size: 12px;
-}
-
-label {
-    display: block;
-    margin: 16px 0 6px;
-    color: var(--texto);
-    font-size: 13px;
-    font-weight: 700;
-}
-
-
-/* =====================================================
-   4. CAMPOS
-   ===================================================== */
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 13px 14px;
-    color: var(--texto);
-    background: var(--campo);
-    border: 1px solid transparent;
-    border-radius: var(--raio-campo);
-    outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: #8a8580;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: var(--vermelho);
-    box-shadow: 0 0 0 3px rgba(176, 58, 72, 0.15);
-}
-
-input:disabled,
-select:disabled,
-textarea:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-/* seta própria no select, como no modelo */
-select {
-    appearance: none;
-    -webkit-appearance: none;
-    padding-right: 38px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23555' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-}
-
-select option {
-    color: var(--texto);
-    background: #ffffff;
-}
-
-
-/* =====================================================
-   5. BOTÕES
-   ===================================================== */
-
-/* principal: pílula vermelha, texto em maiúsculas */
-.botao-principal {
-    display: block;
-    width: 100%;
-    margin-top: 14px;
-    padding: 15px 18px;
-    color: #ffffff;
-    background: var(--vermelho);
-    border: none;
-    border-radius: 999px;
-    box-shadow: var(--sombra);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-    transition: background 0.15s, transform 0.1s;
-}
-
-.botao-principal:hover {
-    background: var(--vermelho-escuro);
-}
-
-.botao-principal:active {
-    transform: scale(0.98);
-}
-
-/* secundário: pílula off-white */
-.botao-secundario {
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-    padding: 14px 18px;
-    color: var(--texto);
-    background: var(--card);
-    border: none;
-    border-radius: 999px;
-    box-shadow: var(--sombra);
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: background 0.15s, transform 0.1s;
-}
-
-.botao-secundario:hover {
-    background: #ffffff;
-}
-
-.botao-secundario:active {
-    transform: scale(0.98);
-}
-
-/* excluir: pílula contornada em vermelho */
-.botao-excluir {
-    margin-top: 8px;
-    padding: 8px 16px;
-    color: var(--vermelho);
-    background: transparent;
-    border: 1px solid var(--vermelho);
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: background 0.15s, color 0.15s;
-}
-
-.botao-excluir:hover {
-    color: #ffffff;
-    background: var(--vermelho);
-}
-
-/* Dia / Semana / Mês lado a lado */
-.botoes-periodo {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.botoes-periodo .botao-secundario {
-    flex: 1;
-    width: auto;
-    margin-top: 0;
-    padding: 12px 6px;
-    font-size: 12px;
-}
-
-
-/* =====================================================
-   6. LOGIN
-   ===================================================== */
-
-.tela-login {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-}
-
-.login-caixa {
-    width: 100%;
-    max-width: 420px;
-    padding: 32px 26px;
-    background: var(--card);
-    border-radius: 26px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-.login-caixa h1 {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.login-subtitulo {
-    margin: 4px 0 24px;
-    text-align: center;
-}
-
-.login-erro {
-    min-height: 20px;
-    margin-top: 12px;
-    text-align: center;
-    color: var(--vermelho);
-    font-size: 14px;
-    font-weight: 700;
-}
-
-
-/* =====================================================
-   7. CABEÇALHO ANTIGO (.topo)
-   Será removido do index.html no próximo passo.
-   ===================================================== */
-
-.topo {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 22px 18px;
-}
-
-.topo::after {
-    content: "";
-    position: absolute;
-    left: 22px;
-    right: 22px;
-    bottom: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--vermelho) 50%, var(--azul) 50%);
-}
-
-.topo h1 {
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-.topo p {
-    margin-top: 2px;
-    color: var(--vermelho);
-    font-size: 11px;
-    letter-spacing: 3px;
-}
-
-.icone {
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--card);
-    border-radius: 14px;
-    box-shadow: var(--sombra-leve);
-    font-size: 22px;
-}
-
-
-/* =====================================================
-   8. ÁREA DE CONTEÚDO E PAINÉIS
-   ===================================================== */
-
-.conteudo {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 16px 24px;
-}
-
-.painel {
-    width: 100%;
-    margin-top: 16px;
-    padding: 20px 18px;
-    background: var(--card);
-    border-radius: var(--raio-card);
-}
-
-.painel h2 {
-    margin-bottom: 4px;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.painel > p {
-    margin-bottom: 16px;
-}
-
-/* painel dentro de painel (tela Clientes antiga) */
-.painel .painel {
-    margin-top: 16px;
-    padding: 16px;
-    background: var(--campo);
-    border-radius: 18px;
-}
-
-
-/* =====================================================
-   9. CARDS DE ATALHO (.cards / .card)
-   ===================================================== */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 8px;
-}
-
-.card {
-    min-height: 120px;
-    padding: 16px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    text-align: center;
-    color: var(--texto);
-    background: var(--campo);
-    border: none;
-    border-radius: 20px;
-    box-shadow: var(--sombra-leve);
-    transition: background 0.15s, transform 0.1s;
-}
-
-.card:hover {
-    background: #ffffff;
-}
-
-.card:active {
-    transform: scale(0.97);
-}
-
-.card span {
-    font-size: 28px;
-    line-height: 1;
-}
-
-.card strong {
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.card small {
-    line-height: 1.35;
-}
-
-
-/* =====================================================
-   10. HOME
-   ===================================================== */
-
-.dashboard-home {
-    padding: 16px 0 0;
-}
-
-.dashboard-topo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.marca-dashboard {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-dashboard {
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    background: #1c1c1c;
-    border: 2px solid #3a3a3a;
-    border-radius: 50%;
-    font-size: 26px;
-    font-weight: 700;
-}
-
-.texto-marca h1 {
-    font-size: 21px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.texto-marca p {
-    margin-top: 2px;
-    color: var(--vermelho);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 3px;
-}
-
-.botao-notificacao {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--card);
-    border: none;
-    border-radius: 50%;
-    box-shadow: var(--sombra-leve);
-    color: var(--texto);
-}
-
-.botao-notificacao:active {
-    transform: scale(0.94);
-}
-
-/* faixa vermelho + azul-marinho */
-.faixa-marca-dashboard {
-    display: flex;
-    height: 3px;
-    margin-top: 12px;
+    color-scheme: dark;
+    --fundo-1: #101110;
+    --fundo-2: #0c0d0c;
+    --card: #191b19;
+    --campo: #121412;
+    --menu: #151715;
+    --texto: #f0ede6;
+    --texto-suave: #aaa9a2;
+    --dourado: #d6b077;
+    --dourado-hover: #e4c38f;
+    --dourado-suave: #27231c;
+    --vermelho: var(--dourado);
+    --vermelho-escuro: #bb945c;
+    --azul: #d6b077;
+    --linha: #30332e;
+    --verde: #8abf9c;
+    --amarelo: #d6b077;
+    --perigo: #eb9f97;
+    --raio-card: 12px;
+    --raio-campo: 7px;
+    --sombra: 0 14px 36px #00000024;
+    --sombra-leve: 0 4px 12px #00000014;
+    --fonte-titulo: "Cormorant Garamond", Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--fundo-1); scroll-behavior: smooth; }
+body { min-width: 280px; min-height: 100vh; color: var(--texto); background: var(--fundo-1); font: 14px/1.6 "Manrope", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button, a, input, select, textarea { touch-action: manipulation; }
+button { color: inherit; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+::selection { color: #111; background: var(--dourado); }
+:focus-visible { outline: 2px solid var(--dourado); outline-offset: 4px; }
+svg { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+h1, h2 { font-family: var(--fonte-titulo); font-weight: 500; line-height: 1.08; letter-spacing: -.025em; }
+h3 { margin: 24px 0 12px; color: var(--dourado); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+p { color: var(--texto-suave); line-height: 1.7; }
+small { color: var(--texto-suave); font-size: 12px; }
+em { color: var(--dourado); font-weight: inherit; }
+label { display: block; margin: 20px 0 8px; color: #d0d1ca; font-size: 12px; font-weight: 600; }
+.eyebrow { display: block; color: var(--dourado); font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+.marca { display: inline-flex; align-items: center; gap: 12px; text-align: left; }
+.marca-simbolo { color: var(--dourado); }
+.marca-simbolo svg { width: 35px; height: 35px; stroke-width: 1.35; }
+.marca-nome { font: 500 23px/1 var(--fonte-titulo); letter-spacing: .09em; }
+.marca-nome small { display: block; margin-top: 5px; font: 600 8px/1.4 "Manrope", sans-serif; letter-spacing: .32em; color: var(--dourado); }
+.marca-botao { border: 0; padding: 6px 0; background: none; }
+input, select, textarea { width: 100%; min-width: 0; min-height: 48px; padding: 12px 14px; color: var(--texto); background: var(--campo); border: 1px solid var(--linha); border-radius: var(--raio-campo); transition: border-color .18s, box-shadow .18s; }
+input::placeholder, textarea::placeholder { color: #888b81; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--dourado); box-shadow: 0 0 0 3px #d6b07714; }
+input:disabled, select:disabled, textarea:disabled { opacity: .65; cursor: not-allowed; }
+input[readonly] { color: var(--dourado); }
+textarea { min-height: 100px; resize: vertical; }
+select { appearance: none; padding-right: 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23c0b8aa' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+select option { color: var(--texto); background: var(--campo); }
+.botao-principal, .botao-secundario, .botao-excluir { min-height: 44px; padding: 12px 18px; border-radius: 7px; font-size: 12px; font-weight: 700; line-height: 1.5; transition: background .18s, border-color .18s, transform .18s; }
+.botao-principal { display: block; width: 100%; margin-top: 16px; color: #181710; background: var(--dourado); border: 1px solid var(--dourado); }
+.botao-principal:hover { background: var(--dourado-hover); border-color: var(--dourado-hover); }
+.botao-principal:active, .botao-secundario:active { transform: translateY(1px); }
+.botao-secundario { display: block; width: 100%; margin-top: 12px; color: var(--texto); background: #ffffff03; border: 1px solid #46483e; }
+.botao-secundario:hover { background: #24271f; border-color: #77735e; }
+.botao-excluir { margin-top: 10px; padding: 8px 14px; color: var(--perigo); background: transparent; border: 1px solid #69403b; }
+.botao-excluir:hover { background: #392320; border-color: var(--perigo); }
+.botoes-periodo { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.botoes-periodo .botao-secundario { flex: 1; width: auto; margin: 0; padding: 11px 8px; }
+
+/* Acesso da equipe */
+.tela-login { min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: 42px; background: #0b0c0b; }
+.login-layout { display: grid; grid-template-columns: 1.15fr 1fr; width: min(1120px, 100%); min-height: 700px; overflow: hidden; border: 1px solid var(--linha); border-radius: 14px; box-shadow: 0 32px 100px #0008; }
+.login-apresentacao { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; padding: 42px; isolation: isolate; background: #10100e; }
+.login-apresentacao::before { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(180deg, #05060599 0%, #07080605 24%, #080a0866 48%, #090b09f5 88%), url("assets/barbearia-hero.png") 71% 35%/cover; }
+.login-manifesto { margin-top: 230px; }
+.login-manifesto h1 { margin-top: 16px; font-size: clamp(42px, 4.8vw, 64px); }
+.login-manifesto p { margin-top: 20px; color: #d0cfc8; font-size: 13px; }
+.login-assinatura { display: block; margin-top: 42px; color: #a9a392; font-size: 9px; letter-spacing: .16em; }
+.login-caixa { display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 50px 54px 34px; background: #191b18; }
+.login-caixa h2 { margin-top: 12px; font-size: 48px; }
+.login-subtitulo { margin: 18px 0 12px; font-size: 12px; }
+.login-entrar { display: flex; align-items: center; justify-content: space-between; margin-top: 26px; min-height: 49px; }
+.login-entrar span { font-size: 20px; line-height: 1; }
+.login-erro { min-height: 24px; margin-top: 10px; color: var(--perigo); font-size: 12px; }
+.login-ajuda { margin: 8px 0 28px; font-size: 11px; }
+.login-rodape { padding-top: 20px; border-top: 1px solid var(--linha); font-size: 10px; letter-spacing: .14em; }
+.login-rodape span { color: #878a7f; }
+
+/* Navegação */
+.app-header { position: sticky; z-index: 20; top: 0; background: #11130ff5; border-bottom: 1px solid #34342a; backdrop-filter: blur(16px); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; max-width: 1248px; min-height: 88px; margin: auto; padding: 0 24px; }
+.menu-inferior { display: flex; align-items: center; gap: 6px; }
+.menu-inferior button { display: inline-flex; position: relative; align-items: center; gap: 8px; min-height: 42px; padding: 10px 16px; background: none; border: 1px solid transparent; border-radius: 6px; color: var(--texto-suave); }
+.menu-inferior button svg { width: 17px; height: 17px; }
+.menu-inferior button small { color: inherit; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.menu-inferior button:hover { color: var(--texto); background: #ffffff05; }
+.menu-inferior button.ativo { color: var(--dourado); border-color: #4b402c; background: #d6b07708; }
+.header-perfil { display: flex; align-items: center; gap: 9px; max-width: 200px; color: #cfcec5; font-size: 11px; }
+#headerPerfil { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.perfil-status { width: 6px; height: 6px; flex-shrink: 0; background: var(--dourado); border-radius: 50%; box-shadow: 0 0 0 4px #d6b0770c; }
+.conteudo { max-width: 1248px; margin: 0 auto; padding: 32px 24px 44px; }
+.app-footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 24px 0 32px; border-top: 1px solid var(--linha); color: #b1af9f; font-size: 10px; letter-spacing: .12em; }
+.app-footer > span > span { color: var(--dourado); }
+.app-footer small { font-size: 10px; letter-spacing: 0; }
+
+/* Visão geral */
+.dashboard-intro { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 26px; }
+.dashboard-intro h1 { margin-top: 7px; font-size: 36px; }
+.dashboard-data { display: inline-flex; align-items: center; gap: 9px; color: var(--texto-suave); font-size: 11px; text-transform: capitalize; }
+.dashboard-data svg { width: 16px; height: 16px; color: var(--dourado); }
+.banner-dashboard { position: relative; min-height: 335px; display: flex; align-items: center; overflow: hidden; padding: 40px 44px; border: 1px solid #3b382c; border-radius: 12px; background: #11130f; isolation: isolate; }
+.banner-dashboard::before { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(90deg, #080b08f5 0%, #080b08dc 25%, #080b0866 52%, #080b0808 78%), url("assets/barbearia-hero.png") center 47%/cover; }
+.banner-conteudo { position: relative; max-width: 560px; }
+.banner-dashboard h2 { margin: 13px 0; color: #f4eee3; font-size: clamp(38px, 4.4vw, 57px); }
+.banner-dashboard p { max-width: 300px; font-size: 12px; color: #c6c9bf; }
+.banner-dashboard .botao-principal { display: inline-flex; width: auto; align-items: center; justify-content: center; gap: 12px; min-height: 46px; margin-top: 24px; padding: 12px 20px; }
+.banner-dashboard .botao-principal svg { width: 18px; height: 18px; }
+.banner-selo { position: absolute; bottom: 24px; right: 26px; display: flex; align-items: center; gap: 9px; color: #d9c6a2; font-size: 9px; letter-spacing: .16em; }
+.banner-selo::before { content: ""; width: 28px; height: 1px; background: var(--dourado); }
+.resumo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 22px 0 28px; }
+.resumo-item { display: flex; align-items: flex-start; gap: 15px; padding: 22px; border: 1px solid var(--linha); border-radius: 9px; background: var(--card); }
+.resumo-icone { display: grid; place-items: center; flex-shrink: 0; width: 40px; height: 40px; color: var(--dourado); background: var(--dourado-suave); border: 1px solid #403b2e; border-radius: 8px; }
+.resumo-icone svg { width: 20px; height: 20px; }
+.resumo-item small { display: block; margin-bottom: 5px; font-size: 10px; }
+.resumo-item strong { display: block; font-size: 25px; line-height: 1.3; font-weight: 600; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.resumo-item p { margin-top: 5px; font-size: 10px; color: #979b8e; }
+.secao-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+.secao-cabecalho h2 { font-size: 26px; }
+.secao-cabecalho small { font-size: 10px; }
+.link-texto { display: inline-flex; align-items: center; gap: 9px; min-height: 40px; padding: 6px 0; color: var(--dourado); font-size: 11px; background: none; border: none; }
+.link-texto svg { width: 15px; height: 15px; }
+.cards-dashboard { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.card-dashboard { display: flex; position: relative; align-items: center; gap: 13px; min-height: 85px; min-width: 0; padding: 18px; text-align: left; border: 1px solid var(--linha); border-radius: 9px; color: var(--texto); background: var(--card); transition: border-color .18s, background .18s; }
+.card-dashboard:hover { border-color: #8f7751; background: #22251e; }
+.icone-card { display: grid; place-items: center; color: var(--dourado); }
+.icone-card svg { width: 23px; height: 23px; }
+.card-dashboard strong { display: block; font-size: 12px; font-weight: 600; }
+.card-dashboard small { display: block; margin-top: 4px; font-size: 10px; }
+.atalho-seta { margin-left: auto; font-size: 17px; color: #777765; }
+.dashboard-detalhes { display: grid; grid-template-columns: 1.6fr 1fr; align-items: start; gap: 22px; margin-top: 28px; }
+.dashboard-painel { padding: 24px; border: 1px solid var(--linha); border-radius: 10px; background: var(--card); min-width: 0; }
+.dashboard-lateral { display: grid; gap: 18px; min-width: 0; }
+.meta-destaque { position: relative; overflow: hidden; padding: 26px; border: 1px solid #57482f; border-radius: 10px; background: #201f19; }
+.meta-destaque > svg { color: var(--dourado); width: 28px; height: 28px; margin-bottom: 18px; }
+.meta-destaque h2 { font-size: 30px; margin: 8px 0; }
+.meta-destaque p { max-width: 290px; font-size: 12px; }
+.meta-destaque .botao-secundario { margin-top: 20px; color: var(--dourado); border-color: #77603e; font-size: 11px; }
+.atendimento-linha { display: flex; align-items: center; gap: 13px; padding: 17px 0; border-top: 1px solid var(--linha); }
+.atendimento-avatar, .avatar { display: grid; place-items: center; width: 39px; height: 39px; flex-shrink: 0; border: 1px solid #494332; color: var(--dourado); background: #27271f; border-radius: 50%; font-family: var(--fonte-titulo); font-size: 22px; }
+.atendimento-nome { flex: 1; min-width: 0; }
+.atendimento-nome strong { display: block; font-size: 12px; font-weight: 600; overflow-wrap: anywhere; }
+.atendimento-nome small { display: block; margin-top: 3px; font-size: 10px; }
+.atendimento-valor { text-align: right; flex-shrink: 0; }
+.atendimento-valor strong { display: block; color: var(--dourado); font-size: 12px; font-weight: 600; }
+.atendimento-valor small { display: block; margin-top: 3px; font-size: 9px; }
+.estado-vazio { padding: 28px 18px; text-align: center; border: 1px dashed #444638; border-radius: 8px; }
+.estado-vazio > svg { width: 29px; height: 29px; margin: 0 auto 16px; color: var(--dourado); }
+.estado-vazio strong { display: block; font-size: 13px; font-weight: 600; }
+.estado-vazio p { margin: 8px auto 0; max-width: 310px; font-size: 11px; }
+.profissionais { display: flex; flex-wrap: wrap; gap: 14px 22px; }
+.profissional { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 70px; }
+.profissional strong { max-width: 100%; overflow-wrap: anywhere; font-size: 10px; text-align: center; font-weight: 500; }
+.profissionais .vazio { width: 100%; margin: 0; font-size: 11px; }
+
+/* Telas de serviços, clientes, metas, financeiro e conta */
+.painel { width: 100%; margin-top: 0; padding: 30px; border: 1px solid var(--linha); background: var(--card); border-radius: var(--raio-card); }
+.painel h2 { margin-bottom: 12px; font-size: 38px; }
+.painel > p { margin-bottom: 22px; font-size: 13px; }
+.painel .painel { margin-top: 22px; padding: 22px; background: #141613; border-color: #30342b; border-radius: 9px; }
+.painel .painel h3:first-child { margin-top: 0; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 16px 0; }
+.card { display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 7px; min-width: 0; min-height: 126px; padding: 22px; text-align: left; border: 1px solid var(--linha); border-radius: 9px; color: var(--texto); background: #121510; }
+button.card { transition: border-color .18s, background .18s; }
+button.card:hover { background: #25271f; border-color: #817150; }
+.card > strong { font-size: 15px; font-weight: 600; }
+.card > small { font-size: 11px; }
+.card p { width: 100%; font-size: 12px; }
+.card p strong { color: var(--dourado); }
+.card label { margin-top: 12px; }
+.card .botao-principal { margin-top: 8px; }
+.card .vazio { padding: 12px; font-size: 12px; }
+.card > span:empty { display: none; }
+.financeiro-card { margin-top: 18px; padding: 24px; border: 1px solid var(--linha); border-radius: 9px; background: var(--campo); }
+.financeiro-card h3 { margin-top: 0; }
+.financeiro-card > strong { display: block; color: var(--dourado); font-size: 30px; }
+.financeiro-card p { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 7px 14px; padding: 12px 0; border-bottom: 1px solid var(--linha); font-size: 13px; }
+.financeiro-card p:last-child { border-bottom: 0; }
+.financeiro-card strong { color: var(--texto); }
+.registro { margin-top: 12px; padding: 18px; border: 1px solid #30362c; border-radius: 8px; background: var(--campo); font-size: 13px; line-height: 1.9; overflow-wrap: anywhere; }
+.registro::after { content: ""; display: block; clear: both; }
+.registro strong { color: var(--texto); font-weight: 600; }
+.registro span { color: var(--texto-suave); }
+.registro.cliente-item { cursor: pointer; transition: border-color .18s, background .18s; }
+.registro.cliente-item:hover { background: #23261f; border-color: #796b4d; }
+.retorno-proximo { border-left: 3px solid var(--amarelo); }
+.retorno-hoje { border-left: 3px solid var(--verde); }
+.retorno-atrasado { border-left: 3px solid var(--perigo); }
+.vazio { margin-top: 14px; padding: 22px; color: var(--texto-suave); text-align: center; border: 1px dashed #454938; border-radius: 8px; font-size: 12px; }
+#listaClientes, #listaBarbeiros, #resultadoPesquisaServicos, #listaServicosDia { margin-top: 18px; }
+#areaServicoLivre { margin-top: 16px; padding: 18px; background: #20231c; border: 1px solid var(--linha); border-radius: 8px; }
+#sugestoesServico .registro { cursor: pointer; background: #151810; }
+#sugestoesServico .registro:hover { border-color: var(--dourado); }
+.meta-progresso { width: 100%; height: 6px; margin-top: 12px; overflow: hidden; background: #34382c; border-radius: 99px; }
+.meta-progresso-barra { height: 100%; width: 0; background: var(--dourado); border-radius: inherit; transition: width .3s; }
+.bloco-info { padding: 20px; background: var(--card); border: 1px solid var(--linha); border-radius: 8px; }
+.bloco-info strong { display: block; font-size: 20px; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #101110; }
+::-webkit-scrollbar-thumb { background: #4a4c40; border-radius: 10px; }
+
+@media (max-width: 1100px) {
+    .header-inner { gap: 18px; }
+    .header-perfil { max-width: 110px; }
+    .menu-inferior button { padding: 10px 11px; }
+    .login-caixa { padding: 40px 32px; }
+    .login-apresentacao { padding: 34px; }
+    .card-dashboard { padding: 16px 12px; gap: 9px; }
+    .app-footer { margin-inline: 24px; }
+}
+@media (max-width: 800px) {
+    body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+    body:has(#telaLogin:not([style*="display: none"])) { padding-bottom: 0; }
+    .header-inner { min-height: 74px; }
+    .header-perfil { max-width: 150px; }
+    .menu-inferior { position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 50; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; min-height: calc(72px + env(safe-area-inset-bottom, 0px)); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid #3b3d31; background: #141713; }
+    .app-header { position: relative; backdrop-filter: none; }
+    .menu-inferior button { flex-direction: column; justify-content: center; gap: 4px; padding: 7px 2px; border-radius: 7px; }
+    .menu-inferior button svg { width: 21px; height: 21px; }
+    .menu-inferior button small { font-size: 9px; }
+    .menu-inferior button.ativo { border-color: transparent; background: #d6b07710; }
+    .conteudo { padding: 26px 20px 32px; }
+    .dashboard-intro h1 { font-size: 31px; }
+    .banner-dashboard { min-height: 305px; padding: 28px; }
+    .banner-dashboard h2 { font-size: 45px; }
+    .resumo-grid { gap: 10px; }
+    .resumo-item { padding: 16px; gap: 9px; }
+    .resumo-icone { display: none; }
+    .resumo-item strong { font-size: 22px; }
+    .cards-dashboard { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .dashboard-detalhes { grid-template-columns: 1fr; }
+    .dashboard-lateral { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .painel { padding: 24px; }
+    .tela-login { padding: 24px; }
+    .login-layout { grid-template-columns: 1fr; min-height: 0; max-width: 510px; }
+    .login-apresentacao { min-height: 255px; padding: 25px 28px; }
+    .login-manifesto { margin-top: 50px; }
+    .login-manifesto h1 { font-size: 38px; margin-top: 10px; }
+    .login-manifesto p, .login-assinatura, .login-manifesto .eyebrow { display: none; }
+    .login-apresentacao::before { background-position: center 48%; }
+    .login-caixa { padding: 32px 28px 28px; }
+    .login-caixa h2 { font-size: 37px; }
+    .login-caixa h2 br { display: none; }
+}
+@media (max-width: 480px) {
+    .conteudo { padding: 24px 16px 30px; }
+    .header-inner { padding-inline: 18px; }
+    .marca-simbolo svg { width: 30px; height: 30px; }
+    .marca-nome { font-size: 21px; }
+    .marca-nome small { font-size: 7px; }
+    .header-perfil { max-width: 120px; font-size: 10px; }
+    .dashboard-intro { align-items: flex-start; margin-bottom: 20px; }
+    .dashboard-intro .eyebrow { font-size: 8px; }
+    .dashboard-intro h1 { font-size: 29px; }
+    .dashboard-data { max-width: 92px; font-size: 9px; gap: 6px; line-height: 1.5; padding-top: 4px; }
+    .dashboard-data svg { display: none; }
+    .banner-dashboard { min-height: 355px; padding: 28px 24px; align-items: flex-end; }
+    .banner-dashboard::before { background: linear-gradient(0deg, #080b08f5 0%, #080b08d0 26%, #080b0860 75%, #080b0825 100%), url("assets/barbearia-hero.png") 66% center/cover; }
+    .banner-dashboard h2 { font-size: 39px; }
+    .banner-dashboard .eyebrow { font-size: 8px; letter-spacing: .16em; }
+    .banner-dashboard p { font-size: 11px; max-width: 230px; }
+    .banner-dashboard .botao-principal { margin-top: 18px; width: 100%; }
+    .banner-selo { display: none; }
+    .resumo-grid { gap: 7px; margin: 16px 0 24px; }
+    .resumo-item { padding: 13px 9px; }
+    .resumo-item strong { font-size: clamp(14px, 4.4vw, 21px); white-space: nowrap; }
+    .resumo-item small { font-size: 9px; line-height: 1.45; min-height: 27px; }
+    .resumo-item p { font-size: 8px; }
+    .secao-cabecalho h2 { font-size: 25px; }
+    .secao-cabecalho > small { font-size: 9px; }
+    .card-dashboard { min-height: 84px; padding: 14px 11px; gap: 9px; }
+    .card-dashboard strong { font-size: 11px; }
+    .card-dashboard small { font-size: 9px; }
+    .card-dashboard .icone-card svg { width: 20px; height: 20px; }
+    .atalho-seta { display: none; }
+    .dashboard-detalhes { margin-top: 23px; gap: 18px; }
+    .dashboard-painel { padding: 19px; }
+    .dashboard-lateral { grid-template-columns: 1fr; }
+    .atendimento-linha { gap: 10px; }
+    .atendimento-avatar { width: 31px; height: 31px; font-size: 19px; }
+    .atendimento-nome strong, .atendimento-valor strong { font-size: 11px; }
+    .app-footer { align-items: flex-start; margin-inline: 18px; padding-top: 20px; gap: 12px; font-size: 8px; }
+    .app-footer small { font-size: 9px; }
+    .painel { padding: 21px 17px; }
+    .painel h2 { font-size: 34px; }
+    .painel .painel { padding: 17px 13px; }
+    .cards { grid-template-columns: 1fr; }
+    .card { padding: 20px; min-height: 105px; }
+    .registro { padding: 15px 13px; font-size: 12px; }
+    .financeiro-card { padding: 19px 15px; }
+    input, select, textarea { font-size: 16px; }
+    .tela-login { padding: 0; }
+    .login-layout { border: 0; border-radius: 0; }
+    .login-apresentacao { min-height: 250px; }
+    .login-caixa { padding: 29px 27px 25px; }
+    .login-manifesto h1 { font-size: 37px; }
 }
-
-.faixa-marca-dashboard span {
-    flex: 1;
-}
-
-.faixa-marca-dashboard span:first-child {
-    background: var(--vermelho);
-}
-
-.faixa-marca-dashboard span:last-child {
-    background: var(--azul);
-}
-
-/* card escuro de boas-vindas */
-.banner-dashboard {
-    margin-top: 18px;
-    padding: 22px 20px;
-    color: #ffffff;
-    background: linear-gradient(135deg, #1c1c1c 0%, #262122 55%, #432f33 100%);
-    border-radius: 26px;
-}
-
-.banner-pequeno {
-    display: block;
-    margin-bottom: 4px;
-    color: #8f9adb;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-.banner-dashboard h2 {
-    color: #ffffff;
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.banner-dashboard p {
-    margin-top: 6px;
-    color: #e8e3df;
-    font-size: 15px;
-}
-
-.banner-dashboard .botao-principal {
-    margin-top: 18px;
-}
-
-.banner-dashboard .faixa-marca-dashboard {
-    margin-top: 16px;
-}
-
-.dashboard-home > .botao-principal {
-    margin-top: 12px;
-}
-
-.bloco-info {
-    padding: 16px 18px;
-    background: var(--card);
-    border-radius: 18px;
-}
-
-.bloco-info strong {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 17px;
-    font-weight: 700;
-}
-
-.profissionais {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px 22px;
-    padding: 14px;
-    background: var(--card);
-    border-radius: 18px;
-}
-
-.profissional {
-    min-width: 84px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-}
-
-.profissional strong {
-    font-size: 12px;
-    font-weight: 700;
-    text-align: center;
-}
-
-.avatar {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    background: var(--vermelho);
-    border-radius: 50%;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.painel-dashboard {
-    margin-top: 22px;
-}
-
-.painel-dashboard h2 {
-    font-size: 22px;
-}
-
-.subtitulo-dashboard {
-    margin: 4px 0 14px;
-}
-
-.cards-dashboard {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 16px;
-}
-
-.card-dashboard {
-    min-height: 96px;
-    padding: 14px 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    text-align: center;
-    color: var(--texto);
-    background: var(--card);
-    border: none;
-    border-radius: 22px;
-    box-shadow: var(--sombra-leve);
-    transition: background 0.15s, transform 0.1s;
-}
-
-.card-dashboard:hover {
-    background: #ffffff;
-}
-
-.card-dashboard:active {
-    transform: scale(0.97);
-}
-
-/* ícones de traço fino: herdam a cor do texto */
-.icone-card,
-.botao-notificacao,
-.menu-inferior button span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.icone-card svg,
-.botao-notificacao svg,
-.menu-inferior button svg {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.icone-card {
-    height: 26px;
-    color: var(--vermelho);
-}
-
-.icone-card svg {
-    width: 26px;
-    height: 26px;
-}
-
-.icone-texto {
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 1;
-}
-
-.botao-notificacao svg {
-    width: 22px;
-    height: 22px;
-}
-
-.menu-inferior button svg {
-    width: 25px;
-    height: 25px;
-}
-
-.card-dashboard strong {
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.card-dashboard small {
-    line-height: 1.35;
-}
-
-
-/* =====================================================
-   11. RESUMOS (.financeiro-card)
-   ===================================================== */
-
-.financeiro-card {
-    margin-top: 14px;
-    padding: 18px;
-    background: var(--card);
-    border-radius: var(--raio-card);
-}
-
-.financeiro-card h3 {
-    margin: 0 0 8px;
-}
-
-.financeiro-card > strong {
-    display: block;
-    margin-top: 4px;
-    font-size: 26px;
-    font-weight: 700;
-}
-
-.financeiro-card p {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 4px 10px;
-    padding: 9px 0;
-    color: var(--texto-suave);
-    border-bottom: 1px solid var(--linha);
-}
-
-.financeiro-card p:last-child {
-    border-bottom: none;
-}
-
-.financeiro-card strong {
-    color: var(--texto);
-}
-
-
-/* =====================================================
-   12. LISTAS E REGISTROS
-   ===================================================== */
-
-.registro {
-    margin-top: 10px;
-    padding: 14px 16px;
-    color: var(--texto);
-    background: var(--campo);
-    border-radius: 16px;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-.registro strong {
-    color: var(--texto);
-    font-weight: 700;
-}
-
-.registro span {
-    color: var(--texto-suave);
-}
-
-.registro.cliente-item {
-    cursor: pointer;
-    transition: background 0.15s;
-}
-
-.registro.cliente-item:hover {
-    background: #e8e4df;
-}
-
-/* retornos de clientes */
-.retorno-proximo {
-    border-left: 4px solid var(--amarelo);
-}
-
-.retorno-hoje {
-    border-left: 4px solid var(--azul);
-}
-
-.retorno-atrasado {
-    border-left: 4px solid var(--vermelho);
-}
-
-.vazio {
-    margin-top: 14px;
-    padding: 18px;
-    text-align: center;
-    color: var(--texto-suave);
-    background: transparent;
-    border: 1px dashed #cdc7bf;
-    border-radius: 14px;
-    font-size: 14px;
-}
-
-#listaClientes,
-#listaBarbeiros,
-#resultadoPesquisaServicos,
-#listaServicosDia {
-    margin-top: 14px;
-}
-
-#areaServicoLivre {
-    margin-top: 10px;
-    padding: 14px;
-    background: var(--campo);
-    border-radius: 16px;
-}
-
-#sugestoesServico .registro {
-    background: var(--card);
-    cursor: pointer;
-}
-
-#sugestoesServico .registro:hover {
-    background: #ffffff;
-}
-
-
-/* =====================================================
-   13. BARRAS DE PROGRESSO (metas)
-   Use estas classes no lugar dos style="..." do app.js
-   ===================================================== */
-
-.meta-progresso {
-    width: 100%;
-    height: 8px;
-    margin-top: 8px;
-    overflow: hidden;
-    background: #ddd8d1;
-    border-radius: 999px;
-}
-
-.meta-progresso-barra {
-    height: 100%;
-    width: 0;
-    background: var(--vermelho);
-    border-radius: inherit;
-    transition: width 0.4s ease;
-}
-
-
-/* =====================================================
-   14. MENU INFERIOR
-   Funciona com qualquer quantidade de botões visíveis
-   (grid-auto-flow: column), então esconder o botão
-   Barbeiros não deixa buraco.
-   ===================================================== */
-
-.menu-inferior {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    height: calc(68px + env(safe-area-inset-bottom, 0px));
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    background: var(--menu);
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.menu-inferior button {
-    position: relative;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    color: var(--texto);
-    background: transparent;
-    border: none;
-    transition: color 0.15s;
-}
-
-.menu-inferior button span {
-    line-height: 1;
-}
-
-.menu-inferior button small {
-    color: inherit;
-    font-size: 11px;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.menu-inferior button.ativo {
-    color: var(--vermelho);
-}
-
-.menu-inferior button.ativo::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 25%;
-    width: 50%;
-    height: 3px;
-    background: var(--vermelho);
-    border-radius: 0 0 4px 4px;
-}
-
-
-/* =====================================================
-   15. SCROLLBAR
-   ===================================================== */
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #c9c3bb;
-    border-radius: 10px;
-}
-
-
-/* =====================================================
-   16. TELAS MAIORES E MOVIMENTO REDUZIDO
-   ===================================================== */
-
-@media (min-width: 700px) {
-
-    .cards {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 360px) {
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .banner-dashboard h2 {
-        font-size: 24px;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+}
 
-    * {
-        transition: none !important;
-        scroll-behavior: auto !important;
-    }
+/* Operação compartilhada e formulários */
+[hidden] { display: none !important; }
+.page-title { display:flex; justify-content:space-between; align-items:flex-start; gap:20px; margin-bottom:25px; }
+.page-title p { margin-top:12px; }
+.page-title .link-texto { flex-shrink:0; }
+.action-row { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:16px 0; }
+.action-row > button { width:auto; margin:0; }
+.form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; align-items:end; }
+.form-grid .botao-principal { align-self:end; min-height:48px; }
+.form-field { min-width:0; }
+.record-main { display:flex; justify-content:space-between; align-items:center; gap:18px; }
+.record-main > div { min-width:0; overflow-wrap:anywhere; }
+.record-amount { text-align:right; flex-shrink:0; }
+.record-amount small { display:block; }
+.registro.canceled { border-color:#68453d; opacity:.8; }
+.registro.canceled .record-amount strong { text-decoration:line-through; }
+.metric-cards .card { cursor:default; }
+.metric-cards strong { font-size:clamp(20px,2.2vw,30px); }
+.hint { font-size:12px; margin:12px 0; }
+details { border:1px solid var(--linha); border-radius:9px; padding:18px; margin:22px 0; }
+summary { cursor:pointer; color:var(--dourado); font-weight:700; }
+fieldset { border:0; margin:24px 0 0; min-width:0; }
+legend { font-size:12px; font-weight:600; margin-bottom:10px; }
+.catalog-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:10px; }
+.service-choice { display:flex; align-items:center; gap:12px; margin:0; padding:15px; border:1px solid var(--linha); border-radius:8px; cursor:pointer; }
+.service-choice:has(input:checked) { border-color:var(--dourado); background:var(--dourado-suave); }
+.service-choice input,.check-label input { width:18px; height:18px; min-height:18px; accent-color:var(--dourado); flex-shrink:0; }
+.service-choice small { display:block; margin-top:4px; }
+.service-total { display:flex; justify-content:space-between; font-size:20px; padding:20px 0; border-bottom:1px solid var(--linha); }
+.service-total strong { color:var(--dourado); }
+.check-label { display:flex; align-items:center; gap:10px; }
+.goal-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:22px 0; }
+.goal-grid h3 { margin-top:0; }
+.goal-grid .bloco-info > strong { margin-top:15px; }
+.monthly-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+.monthly-grid > div { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; padding:12px; border:1px solid var(--linha); border-radius:6px; }
+.monthly-grid span { color:var(--texto-suave); }
+.monthly-grid strong { color:var(--dourado); }
+.demo-banner { padding:12px 24px; background:#29241a; border-bottom:1px solid #655338; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:12px 24px; font-size:12px; }
+.sync-row { display:flex; justify-content:flex-end; align-items:center; gap:16px; margin-bottom:20px; }
+.sync-row small { font-size:10px; }
+.setup-notice { padding:14px; margin:12px 0; background:#29241a; border-radius:6px; font-size:12px; }
+.status-message:empty { display:none; }
+.status-message { position:fixed; z-index:100; bottom:24px; left:50%; transform:translateX(-50%); width:max-content; max-width:calc(100vw - 32px); padding:14px 20px; border-radius:8px; border:1px solid var(--linha); color:var(--texto); box-shadow:0 5px 30px #0008; font-size:13px; background:#202820; }
+.status-error { background:#35211e; border-color:#906354; }
+#app[aria-busy=true] { opacity:.6; pointer-events:none; }
+.login-caixa .action-row { gap:10px 18px; justify-content:space-between; }
+.login-caixa .link-texto { font-size:11px; }
+.login-caixa #openDemo { margin-bottom:20px; }
+@media(max-width:800px) {
+    .goal-grid { grid-template-columns:1fr; }
+    .monthly-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .status-message { bottom:calc(88px + env(safe-area-inset-bottom,0px)); }
+    .demo-banner { padding:12px 16px; justify-content:flex-start; }
+}
+@media(max-width:480px) {
+    .form-grid { grid-template-columns:1fr; gap:0; }
+    .page-title { flex-direction:column-reverse; gap:14px; }
+    .record-main { flex-wrap:wrap; gap:12px; }
+    .record-amount { text-align:left; }
+    .catalog-grid { grid-template-columns:1fr; }
+    .monthly-grid > div { flex-direction:column; font-size:12px; }
+    details { padding:14px; }
+}
+@media print {
+    :root { --texto:#111; --texto-suave:#333; --dourado:#654417; --card:#fff; --linha:#ccc; }
+    body,html,.painel,.registro,.card,.monthly-grid > div { background:white !important; color:#111 !important; }
+    body { padding:0 !important; }
+    .app-header,.app-footer,.sync-row,.status-message,button,form,.action-row,.botoes-periodo { display:none !important; }
+    .demo-banner:not([hidden]) { display:block; color:#111; background:white; border:1px solid #333; }
+    .conteudo { padding:0; max-width:none; }
+    .painel { border:0; box-shadow:none; padding:0; }
+    .registro,.card,.monthly-grid > div { break-inside:avoid; box-shadow:none; }
+    h2 { font-size:28px; }
+    .monthly-grid { grid-template-columns:repeat(4,1fr); }
 }

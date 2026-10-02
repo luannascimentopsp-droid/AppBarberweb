@@ -1,0 +1,10 @@
+import { build } from 'esbuild';
+import { mkdir, copyFile, cp, writeFile } from 'node:fs/promises';
+await mkdir('vendor', { recursive: true });
+await build({ stdin: { contents: 'export { createClient } from "@supabase/supabase-js";', resolveDir: process.cwd() }, bundle: true, format: 'esm', platform: 'browser', target: 'es2022', outfile: 'vendor/supabase.js', minify: true, legalComments: 'eof' });
+await mkdir('dist', { recursive: true });
+for (const file of ['index.html', 'app.js', 'ui.js', 'cloud.js', 'domain.js', 'demo.js', 'style.css', 'config.js', 'exportar-antigo.html', 'exportar-antigo.js', '_headers']) await copyFile(file, `dist/${file}`);
+for (const dir of ['vendor', 'assets']) await cp(dir, `dist/${dir}`, { recursive: true });
+await writeFile('dist/.nojekyll', '');
+await build({ entryPoints:['app.js'], bundle:true, format:'esm', platform:'browser', target:'es2022', outfile:'dist/app.js', minify:true, legalComments:'eof' });
+console.log('Site pronto em dist/. Publique somente esta pasta.');
