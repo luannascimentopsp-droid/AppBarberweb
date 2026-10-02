@@ -667,6 +667,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 dataBase
             );
 
+        // Cada perfil pode definir a meta uma vez por período.
+        // Uma nova diária/semanal/mensal fica disponível quando o período virar.
+        if (metas[usuario][tipo][chave]) {
+            return false;
+        }
+
         metas[usuario][tipo][chave] = {
 
             valor:
@@ -1002,6 +1008,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const valor =
             input.value;
 
+        const metaExistente = obterMetaUsuario(tipo, usuario);
+        if (metaExistente) {
+            alert("Você já definiu esta meta para o período atual. Uma nova definição ficará disponível quando o período terminar.");
+            return;
+        }
+
         if (
             !salvarMetaUsuario(
                 tipo,
@@ -1032,6 +1044,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function alterarMetaBarbeiro(
         tipo
     ) {
+
+        if (obterSessao().tipo !== "dono") {
+            return;
+        }
 
         const select =
             document.getElementById(
@@ -1862,9 +1878,11 @@ function mostrarHome() {
         );
     }
 
-    atalhos.push(
-        { id: "homeFinanceiro", icone: '<span class="icone-texto">R$</span>', nome: "Financeiro" }
-    );
+    if (ehDono) {
+        atalhos.push(
+            { id: "homeFinanceiro", icone: '<span class="icone-texto">R$</span>', nome: "Financeiro" }
+        );
+    }
 
     const htmlAtalhos =
         atalhos
@@ -2068,10 +2086,10 @@ function mostrarHome() {
             };
     }
 
-    document.getElementById("homeFinanceiro").onclick =
-        function () {
-            mostrarFinanceiro();
-        };
+    const homeFinanceiro = document.getElementById("homeFinanceiro");
+    if (homeFinanceiro) {
+        homeFinanceiro.onclick = function () { mostrarFinanceiro(); };
+    }
 
 
     /* METAS */
@@ -2313,9 +2331,10 @@ function mostrarHome() {
                     );
 
 
-                renderizarListaServicos(
-                    encontrados,
-                    resultado
+                renderizarRelatorioBuscaCliente(
+                    texto,
+                    resultado,
+                    encontrados
                 );
             };
 
@@ -3839,10 +3858,10 @@ if (campoDataServico) {
             ).value.trim();
 
 
-        const barbeiro =
-            document.getElementById(
-                "barbeiro"
-            ).value;
+        const sessaoServico = obterSessao();
+        const barbeiro = sessaoServico.tipo === "barbeiro"
+            ? sessaoServico.nome
+            : document.getElementById("barbeiro").value;
 
 
         const servicoSelecionado =
@@ -4012,6 +4031,103 @@ const hora =
     // =====================================================
     // CLIENTES
     // =====================================================
+function normalizarNomeCliente(nome) {
+    return String(nome || "")
+        .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("pt-BR");
+}
+
+function servicosVisiveisDoCliente(nome) {
+    const filtro = getFiltroBarbeiro();
+    return lerLocalStorage("servicos", []).filter(function (servico) {
+        const mesmoCliente = normalizarNomeCliente(servico.cliente) === normalizarNomeCliente(nome);
+        const barbeiroPermitido = !filtro || servico.barbeiro === filtro;
+        return mesmoCliente && barbeiroPermitido;
+    }).sort(function (a, b) {
+        return (converterDataServicoParaISO(b.data) || "").localeCompare(converterDataServicoParaISO(a.data) || "");
+    });
+}
+
+function criarRelatorioClienteHTML(nome, servicos) {
+    if (!servicos.length) {
+        return `<p class="vazio">Nenhum serviço encontrado para este cliente no seu acesso.</p>`;
+    }
+
+    const datas = servicos.map(function (item) { return converterDataServicoParaISO(item.data); }).filter(Boolean).sort();
+    const primeiraData = datas[0] || "";
+    const dataPrimeiroAtendimento = primeiraData ? new Date(primeiraData + "T12:00:00") : null;
+    const aniversarioDoHistorico = dataPrimeiroAtendimento ? new Date(dataPrimeiroAtendimento) : null;
+    if (aniversarioDoHistorico) aniversarioDoHistorico.setFullYear(aniversarioDoHistorico.getFullYear() + 1);
+    const umAnoDeHistorico = aniversarioDoHistorico && aniversarioDoHistorico <= new Date();
+    const gastoTotal = servicos.reduce(function (total, item) { return total + (Number(item.valor) || 0); }, 0);
+    const hoje = new Date();
+    const inicioDozeMeses = new Date(hoje.getFullYear(), hoje.getMonth() - 11, 1);
+    const gastosMensais = {};
+
+    servicos.forEach(function (item) {
+        const iso = converterDataServicoParaISO(item.data);
+        if (!iso) return;
+        const data = new Date(iso + "T12:00:00");
+        if (data < inicioDozeMeses || data > hoje) return;
+        const chave = iso.slice(0, 7);
+        gastosMensais[chave] = (gastosMensais[chave] || 0) + (Number(item.valor) || 0);
+    });
+
+    const nomesMeses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    const linhasMeses = Object.keys(gastosMensais).sort().reverse().map(function (chave) {
+        const partes = chave.split("-");
+        return `<div class="registro"><strong>${nomesMeses[Number(partes[1]) - 1]} de ${partes[0]}</strong><span style="float:right">R$ ${formatarMoeda(gastosMensais[chave])}</span></div>`;
+    }).join("");
+
+    const listaServicos = servicos.map(function (item) {
+        return `<div class="registro"><strong>${escaparHTML(item.servico || "Serviço")}</strong><br><span>${escaparHTML(item.data || "Data não informada")}${item.hora ? " às " + escaparHTML(item.hora) : ""} · ${escaparHTML(item.barbeiro || "Barbeiro não informado")}</span><br><span>Pagamento: ${escaparHTML(item.pagamento || "Não informado")}</span><strong style="float:right">R$ ${formatarMoeda(item.valor)}</strong></div>`;
+    }).join("");
+
+    return `
+        <div class="cards" style="margin-top:14px">
+            <div class="card" style="cursor:default"><small>Atendimentos registrados</small><strong>${servicos.length}</strong></div>
+            <div class="card" style="cursor:default"><small>Total gasto registrado</small><strong>R$ ${formatarMoeda(gastoTotal)}</strong></div>
+        </div>
+        <p style="margin-top:10px">Primeiro atendimento registrado: <strong>${primeiraData ? primeiraData.split("-").reverse().join("/") : "sem data"}</strong></p>
+        ${umAnoDeHistorico ? `<p class="registro retorno-proximo"><strong>Cliente com histórico de 1 ano ou mais.</strong> O relatório abaixo mostra os gastos mensais dos últimos 12 meses.</p>` : `<p class="registro">O histórico disponível ainda não completa um ano; os atendimentos registrados já aparecem abaixo.</p>`}
+        <h3>Gastos por mês - últimos 12 meses</h3>
+        ${linhasMeses || `<p class="vazio">Nenhum gasto registrado nesse intervalo.</p>`}
+        <h3>Histórico de serviços</h3>
+        ${listaServicos}
+    `;
+}
+
+function mostrarHistoricoCliente(nome) {
+    ativarMenu("menuClientes");
+    const servicos = servicosVisiveisDoCliente(nome);
+    app.innerHTML = `
+        <div class="painel">
+            <h2>${escaparHTML(nome)}</h2>
+            <p>Histórico de atendimentos e gastos registrados.</p>
+            <button class="botao-secundario" id="voltarHistoricoCliente">Voltar para clientes</button>
+            ${criarRelatorioClienteHTML(nome, servicos)}
+        </div>
+    `;
+    document.getElementById("voltarHistoricoCliente").onclick = mostrarClientes;
+}
+
+function renderizarRelatorioBuscaCliente(texto, area, servicosFiltrados) {
+    if (!servicosFiltrados.length) {
+        area.innerHTML = `<p class="vazio">Nenhum atendimento encontrado para esse nome.</p>`;
+        return;
+    }
+    const clientes = Array.from(new Set(servicosFiltrados.map(function (item) { return String(item.cliente || "").trim(); }).filter(Boolean)));
+    area.innerHTML = clientes.map(function (nome) {
+        const servicos = servicosVisiveisDoCliente(nome);
+        return `<section class="painel"><h3>${escaparHTML(nome)}</h3>${criarRelatorioClienteHTML(nome, servicos)}<button class="botao-secundario" type="button" data-historico-cliente="${escaparHTML(nome)}">Abrir histórico completo</button></section>`;
+    }).join("");
+    area.querySelectorAll("[data-historico-cliente]").forEach(function (botao) {
+        botao.onclick = function () { mostrarHistoricoCliente(this.dataset.historicoCliente); };
+    });
+}
+
 function mostrarClientes() {
 
     ativarMenu("menuClientes");
@@ -5300,6 +5416,11 @@ function mostrarRetornosClientes() {
 
     function mostrarBarbeiros() {
 
+        if (obterSessao().tipo !== "dono") {
+            mostrarHome();
+            return;
+        }
+
         ativarMenu(
             "menuBarbeiros"
         );
@@ -5628,6 +5749,11 @@ function mostrarRetornosClientes() {
     // =====================================================
 
     function mostrarFinanceiro() {
+
+    if (obterSessao().tipo !== "dono") {
+        mostrarHome();
+        return;
+    }
 
     ativarMenu(
         "menuFinanceiro"
@@ -6627,6 +6753,11 @@ function abrirEscolhaMesFinanceiro() {
             "salvarConta"
         ).onclick =
             function () {
+
+                if (obterSessao().tipo !== "dono") {
+                    alert("Somente o dono pode alterar os dados da barbearia.");
+                    return;
+                }
 
                 salvarLocalStorage(
                     "conta",
